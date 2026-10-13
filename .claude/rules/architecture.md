@@ -42,8 +42,15 @@ Rules 1 and 2 are enforced in CI with `eslint-plugin-boundaries` or
 `eslint-plugin-import` restricted zones (choice open — see `open-questions.md`).
 **A boundary that is not enforced by a tool is a boundary that lasts about four weeks.**
 
-The `@/*` path alias must resolve to `src/*` in both `tsconfig.app.json` and
-`vite.config.ts`. Neither is configured yet.
+The `@/*` path alias resolves to `src/*` in both `tsconfig.app.json` and `vite.config.ts`.
+
+## Router
+
+**React Router v7** (`react-router`, decided Oct 13, 2026). Routes live in
+`app/router/router.tsx`; lazy page components and their chunk loaders live in
+`app/router/lazyPages.ts`, so the sidebar can prefetch the same chunk on hover. Each route
+has its own `errorElement`. URL state goes through `shared/hooks/useUrlState`, built on
+`useSearchParams`.
 
 ## Sixteen modules
 

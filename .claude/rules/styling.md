@@ -42,8 +42,9 @@ with template literals and ternaries.**
   conditionals in JSX.
 - Use logical properties for RTL: `ms-` / `me-` / `ps-` / `pe-` / `start-` / `end-`.
   Never `ml-` / `mr-` / `pl-` / `pr-` / `left-` / `right-`.
-- Dark mode via a `data-theme` or `.dark` class on `<html>`, driven by one
-  `ThemeProvider` (which of the two is open — see `open-questions.md`).
+- Dark mode via a **`.dark` class on `<html>`** (decided Oct 13, 2026), driven by one
+  `ThemeProvider`. `index.css` redefines the same tokens under `.dark`, so components never
+  need `dark:` variants.
 - `shared/ui` components may contain Tailwind classes. Feature components should mostly
   **compose** `shared/ui`, not restyle it.
 - Self-host the Arabic font — see `i18n-rtl.md`.

@@ -5,8 +5,8 @@ description: Scaffold a new feature module under src/features with its folders, 
 
 # Scaffold a new feature module
 
-> Written from the architecture document before the first module existed. Replace the route
-> snippet with the real one once the router is chosen.
+> Written from the architecture document before the first module existed. The router is now
+> React Router v7 — the real registration is `src/app/router/router.tsx` + `lazyPages.ts`.
 
 Rules: `.claude/rules/architecture.md`. The sidebar has sixteen modules, so **every feature
 is one lazy route** — that is the only way first paint stays fast.
@@ -99,5 +99,4 @@ const GraphPage = lazy(() => import('@/features/graph/pages/GraphPage'));
 - Register a non-lazy route, or put a heavy library in the entry chunk.
 - Add strings to a global translation file.
 
-Router choice is still open — see `.claude/rules/open-questions.md`. The `@/*` alias also
-has to be added to `tsconfig.app.json` and `vite.config.ts` before any of this resolves.
+Router: React Router v7 — see `.claude/rules/architecture.md`.

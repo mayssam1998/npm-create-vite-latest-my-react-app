@@ -1,0 +1,88 @@
+{
+  "app": {
+    "name": "InSightX",
+    "tagline": "Phoenix hybrid intelligence"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "soon": "Soon",
+    "sections": {
+      "workspace": "Workspace",
+      "dataEntry": "Data entry",
+      "analyst": "Analyst",
+      "interception": "Interception"
+    },
+    "caseManagement": "Case Management",
+    "draftCases": "Draft Cases",
+    "myWork": "My Work",
+    "aiAssistant": "AI Assistant",
+    "projects": "Projects",
+    "promptLibrary": "Prompt Library",
+    "entities": "Entities",
+    "caseIntake": "Case Intake",
+    "referenceDatabases": "Reference Databases",
+    "entityResolution": "Entity Resolution",
+    "dailyBulletin": "Daily Bulletin",
+    "reconcileFaces": "Reconcile Faces",
+    "etl": "ETL",
+    "workspaceManagement": "Workspace Management",
+    "compareRecords": "Compare Records",
+    "messages": "Messages",
+    "mapAnalysis": "Map Analysis",
+    "watchlists": "Watchlists",
+    "linkAnalysis": "Link Analysis",
+    "callAnalysis": "Call Analysis",
+    "reportRegistry": "Report Registry",
+    "notBuilt": "Not built yet"
+  },
+  "header": {
+    "showSidebar": "Show sidebar",
+    "hideSidebar": "Hide sidebar",
+    "search": "Search cases, entities, profiles…",
+    "searchShortcut": "⌘K"
+  },
+  "language": {
+    "switchTo": "العربية",
+    "switchLabel": "Switch to Arabic"
+  },
+  "theme": {
+    "toDark": "Switch to dark mode",
+    "toLight": "Switch to light mode"
+  },
+  "comingSoon": {
+    "title": "This module is not built yet",
+    "description": "Only Case Management exists in this prototype.",
+    "back": "Back to Case Management"
+  },
+  "routeError": {
+    "title": "This page failed to load",
+    "description": "An unexpected error stopped this page. The rest of the app still works.",
+    "reload": "Reload page"
+  },
+  "loading": "Loading…",
+  "errors": {
+    "title": "Something went wrong",
+    "description": "The data could not be loaded. Check your connection and try again.",
+    "retry": "Try again"
+  },
+  "table": {
+    "expandColumn": "Expand",
+    "expandRow": "Expand row",
+    "collapseRow": "Collapse row",
+    "refreshing": "Refreshing"
+  },
+  "pagination": {
+    "label": "Pagination",
+    "rowsPerPage": "Rows per page",
+    "range": "{{from}}–{{to}} of {{total}}",
+    "pageOf": "Page {{page}} of {{pageCount}}",
+    "previous": "Previous page",
+    "next": "Next page"
+  },
+  "filters": {
+    "searchOptions": "Search {{label}} options",
+    "searchPlaceholder": "Search…",
+    "noMatches": "No matches",
+    "clear": "Clear"
+  }
+}

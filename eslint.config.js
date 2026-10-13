@@ -19,4 +19,11 @@ export default defineConfig([
       globals: globals.browser,
     },
   },
+  {
+    // A table's columns.tsx exports column definitions (data) and keeps its small cell
+    // renderers private beside them — the add-data-table skill's pattern. Editing it
+    // triggers a full reload instead of a fast refresh, which is acceptable.
+    files: ['**/columns.tsx'],
+    rules: { 'react-refresh/only-export-components': 'off' },
+  },
 ])

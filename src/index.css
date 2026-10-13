@@ -1,111 +1,111 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import 'tailwindcss';
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+/* Dark mode is a `.dark` class on <html>, set by the ThemeProvider. */
+@custom-variant dark (&:where(.dark, .dark *));
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/*
+ * Design tokens. Components use these utilities only — never a raw colour.
+ * The real palette still has to be extracted from the design files
+ * (see .claude/rules/open-questions.md); these approximate the screenshots.
+ */
+@theme {
+  --font-sans: 'Inter', 'IBM Plex Sans Arabic', 'Noto Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', monospace;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  --color-surface: oklch(98.5% 0.008 90);
+  --color-surface-raised: oklch(100% 0 0);
+  --color-surface-muted: oklch(95.5% 0.012 90);
+  --color-surface-hover: oklch(93.5% 0.015 90);
+
+  --color-border: oklch(91% 0.012 90);
+  --color-border-strong: oklch(84% 0.015 90);
+
+  --color-content: oklch(24% 0.015 150);
+  --color-content-muted: oklch(46% 0.015 150);
+  --color-content-subtle: oklch(60% 0.012 150);
+
+  --color-primary: oklch(42% 0.09 155);
+  --color-primary-hover: oklch(36% 0.09 155);
+  --color-primary-foreground: oklch(98% 0.01 155);
+  --color-primary-soft: oklch(93% 0.035 155);
+
+  --color-focus: oklch(55% 0.13 155);
+
+  --color-status-new: oklch(52% 0.13 250);
+  --color-status-open: oklch(55% 0.14 230);
+  --color-status-progress: oklch(52% 0.15 290);
+  --color-status-pending: oklch(66% 0.15 65);
+  --color-status-closed: oklch(55% 0.01 150);
+
+  --color-priority-urgent: oklch(56% 0.2 25);
+  --color-priority-high: oklch(62% 0.17 45);
+  --color-priority-normal: oklch(46% 0.015 150);
+  --color-priority-low: oklch(60% 0.012 150);
+
+  --color-danger: oklch(56% 0.2 25);
+
+  --color-accent-amber: oklch(66% 0.15 65);
+  --color-accent-red: oklch(56% 0.2 25);
+  --color-accent-blue: oklch(55% 0.14 240);
+  --color-accent-violet: oklch(52% 0.15 290);
+  --color-accent-teal: oklch(55% 0.1 185);
+}
+
+.dark {
+  --color-surface: oklch(18% 0.01 150);
+  --color-surface-raised: oklch(22% 0.012 150);
+  --color-surface-muted: oklch(25% 0.012 150);
+  --color-surface-hover: oklch(29% 0.014 150);
+
+  --color-border: oklch(30% 0.012 150);
+  --color-border-strong: oklch(38% 0.014 150);
+
+  --color-content: oklch(94% 0.008 90);
+  --color-content-muted: oklch(76% 0.01 90);
+  --color-content-subtle: oklch(62% 0.01 90);
+
+  --color-primary: oklch(70% 0.12 155);
+  --color-primary-hover: oklch(76% 0.12 155);
+  --color-primary-foreground: oklch(18% 0.02 155);
+  --color-primary-soft: oklch(30% 0.05 155);
+
+  --color-focus: oklch(75% 0.13 155);
+
+  --color-status-new: oklch(72% 0.12 250);
+  --color-status-open: oklch(74% 0.12 230);
+  --color-status-progress: oklch(72% 0.13 290);
+  --color-status-pending: oklch(78% 0.14 70);
+  --color-status-closed: oklch(66% 0.01 150);
+
+  --color-priority-urgent: oklch(70% 0.18 25);
+  --color-priority-high: oklch(76% 0.15 50);
+  --color-priority-normal: oklch(76% 0.01 90);
+  --color-priority-low: oklch(62% 0.01 90);
+
+  --color-danger: oklch(70% 0.18 25);
+
+  --color-accent-amber: oklch(78% 0.14 70);
+  --color-accent-red: oklch(70% 0.18 25);
+  --color-accent-blue: oklch(74% 0.12 240);
+  --color-accent-violet: oklch(72% 0.13 290);
+  --color-accent-teal: oklch(74% 0.1 185);
+}
+
+@layer base {
+  html {
+    color-scheme: light;
   }
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+  html.dark {
+    color-scheme: dark;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  body {
+    @apply bg-surface font-sans text-content antialiased;
   }
-}
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
+  /* One focus style for every interactive element — keyboard users always see it. */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-focus;
   }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
 }

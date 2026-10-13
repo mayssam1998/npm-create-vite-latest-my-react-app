@@ -110,5 +110,5 @@ export function useCreateCase() {
   update.
 - Put a `try/catch` in a component. Errors go to the shared error boundary and a toast.
 
-Open: `fetch` vs axios for the client, and the real endpoint/pagination shape — see
-`.claude/rules/open-questions.md`.
+The client is native `fetch` (`src/shared/lib/apiClient.ts`). Still open: the real
+endpoint/pagination shape — see `.claude/rules/open-questions.md`.

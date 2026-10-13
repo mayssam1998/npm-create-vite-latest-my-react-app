@@ -1,0 +1,125 @@
+{
+  "page": {
+    "title": "إدارة القضايا",
+    "subtitle": "القضايا التي تنتظرك أولاً، ثم كل ما يمكنك الاطلاع عليه."
+  },
+  "tabs": {
+    "label": "إعدادات القضايا المسبقة",
+    "needsYou": "بانتظارك",
+    "overdue": "متأخرة / متوقفة",
+    "all": "كل القضايا"
+  },
+  "search": {
+    "label": "البحث في القضايا",
+    "placeholder": "ابحث بالاسم أو رقم القضية أو الملف"
+  },
+  "view": {
+    "label": "طريقة العرض",
+    "board": "لوحة",
+    "table": "جدول"
+  },
+  "actions": {
+    "bulkUpload": "رفع جماعي",
+    "newCase": "قضية جديدة"
+  },
+  "filters": {
+    "label": "عوامل تصفية القضايا",
+    "status": "الحالة",
+    "priority": "الأولوية",
+    "type": "النوع",
+    "section": "القسم",
+    "owner": "المسؤول",
+    "reset": "إعادة ضبط عوامل التصفية"
+  },
+  "summary": {
+    "total_zero": "لا توجد قضايا",
+    "total_one": "قضية واحدة",
+    "total_two": "قضيتان",
+    "total_few": "{{formattedCount}} قضايا",
+    "total_many": "{{formattedCount}} قضية",
+    "total_other": "{{formattedCount}} قضية",
+    "ofTotal_zero": "{{shown}} من أصل {{formattedCount}} قضية",
+    "ofTotal_one": "{{shown}} من أصل قضية واحدة",
+    "ofTotal_two": "{{shown}} من أصل قضيتين",
+    "ofTotal_few": "{{shown}} من أصل {{formattedCount}} قضايا",
+    "ofTotal_many": "{{shown}} من أصل {{formattedCount}} قضية",
+    "ofTotal_other": "{{shown}} من أصل {{formattedCount}} قضية"
+  },
+  "sort": {
+    "trigger": "ترتيب",
+    "field": "ترتيب حسب",
+    "direction": "الاتجاه",
+    "asc": "تصاعدي",
+    "desc": "تنازلي",
+    "fields": {
+      "reference": "المرجع",
+      "status": "الحالة",
+      "priority": "الأولوية",
+      "type": "النوع",
+      "section": "القسم",
+      "owner": "المسؤول",
+      "dueDate": "تاريخ الاستحقاق",
+      "updatedAt": "آخر تحديث"
+    }
+  },
+  "table": {
+    "label": "القضايا",
+    "reference": "المرجع",
+    "title": "العنوان",
+    "status": "الحالة",
+    "priority": "الأولوية",
+    "type": "النوع",
+    "section": "القسم",
+    "owner": "المسؤول",
+    "due": "الاستحقاق",
+    "tags": "الوسوم",
+    "tasks": "المهام",
+    "updated": "آخر تحديث",
+    "unassigned": "غير مُسنَدة",
+    "overdue": "متأخرة",
+    "none": "—",
+    "tasksProgress": "{{done}}/{{total}}"
+  },
+  "status": {
+    "new": "جديدة",
+    "open": "مفتوحة",
+    "inProgress": "قيد المعالجة",
+    "pendingSignatureIn": "بانتظار التوقيع · وارد",
+    "pendingSignatureOut": "بانتظار التوقيع · صادر",
+    "closed": "مغلقة"
+  },
+  "priority": {
+    "urgent": "عاجلة",
+    "high": "عالية",
+    "normal": "عادية",
+    "low": "منخفضة"
+  },
+  "source": {
+    "bulletin": "نشرة",
+    "intake": "استلام",
+    "interception": "اعتراض"
+  },
+  "badge": {
+    "processed": "معالَجة"
+  },
+  "linked": {
+    "label": "العناصر المرتبطة",
+    "loading": "جارٍ تحميل العناصر المرتبطة",
+    "empty": "لا توجد تقارير أو مستندات مرتبطة بهذه القضية.",
+    "error": "تعذر تحميل العناصر المرتبطة"
+  },
+  "board": {
+    "label": "لوحة القضايا"
+  },
+  "empty": {
+    "title": "لا يوجد شيء هنا",
+    "description": "لا توجد قضايا في طريقة العرض هذه.",
+    "filteredTitle": "لا توجد قضايا تطابق عوامل التصفية هذه",
+    "filteredDescription": "أزل أحد عوامل التصفية أو غيّر البحث لعرض المزيد من القضايا.",
+    "pastLastPageTitle": "هذه الصفحة تتجاوز نهاية القائمة",
+    "firstPage": "الانتقال إلى الصفحة الأولى"
+  },
+  "error": {
+    "title": "تعذر تحميل القضايا"
+  }
+}

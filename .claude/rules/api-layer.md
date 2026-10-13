@@ -2,9 +2,11 @@
 
 ## Three layers, no shortcuts
 
-1. `shared/lib/apiClient.ts` — one configured fetch/axios instance. Base URL, auth header,
-   error normalisation, `AbortSignal` support. **Nothing else in the app calls `fetch`
-   directly.** (fetch vs axios is open — see `open-questions.md`.)
+1. `shared/lib/apiClient.ts` — one configured client over **native `fetch`** (decided Oct 13,
+   2026). Base URL, auth header, error normalisation into `ApiError`, `AbortSignal` support.
+   **Nothing else in the app calls `fetch` directly.** The transport is swappable with
+   `setApiTransport()` — the in-browser mock server in `src/mocks/` uses this while there is
+   no backend (`VITE_USE_MOCKS=true`).
 2. `features/<domain>/api/*.api.ts` — plain async functions that call the client and
    return typed data. **No React in these files.**
 3. `features/<domain>/api/*.queries.ts` — the `useQuery` / `useMutation` hooks that

@@ -1,0 +1,117 @@
+{
+  "page": {
+    "title": "Case Management",
+    "subtitle": "Cases waiting on you, then everything you may see."
+  },
+  "tabs": {
+    "label": "Case presets",
+    "needsYou": "Needs you",
+    "overdue": "Overdue / stalled",
+    "all": "All cases"
+  },
+  "search": {
+    "label": "Search cases",
+    "placeholder": "Search name, case ID, or profile"
+  },
+  "view": {
+    "label": "View",
+    "board": "Board",
+    "table": "Table"
+  },
+  "actions": {
+    "bulkUpload": "Bulk upload",
+    "newCase": "New case"
+  },
+  "filters": {
+    "label": "Case filters",
+    "status": "Status",
+    "priority": "Priority",
+    "type": "Type",
+    "section": "Section",
+    "owner": "Owner",
+    "reset": "Reset filters"
+  },
+  "summary": {
+    "total_one": "{{formattedCount}} case",
+    "total_other": "{{formattedCount}} cases",
+    "ofTotal_one": "{{shown}} of {{formattedCount}} case",
+    "ofTotal_other": "{{shown}} of {{formattedCount}} cases"
+  },
+  "sort": {
+    "trigger": "Sort",
+    "field": "Sort by",
+    "direction": "Direction",
+    "asc": "Ascending",
+    "desc": "Descending",
+    "fields": {
+      "reference": "Reference",
+      "status": "Status",
+      "priority": "Priority",
+      "type": "Type",
+      "section": "Section",
+      "owner": "Owner",
+      "dueDate": "Due date",
+      "updatedAt": "Last updated"
+    }
+  },
+  "table": {
+    "label": "Cases",
+    "reference": "Reference",
+    "title": "Title",
+    "status": "Status",
+    "priority": "Priority",
+    "type": "Type",
+    "section": "Section",
+    "owner": "Owner",
+    "due": "Due",
+    "tags": "Tags",
+    "tasks": "Tasks",
+    "updated": "Updated",
+    "unassigned": "Unassigned",
+    "overdue": "Overdue",
+    "none": "—",
+    "tasksProgress": "{{done}}/{{total}}"
+  },
+  "status": {
+    "new": "New",
+    "open": "Open",
+    "inProgress": "In progress",
+    "pendingSignatureIn": "Pending signature · In",
+    "pendingSignatureOut": "Pending signature · Out",
+    "closed": "Closed"
+  },
+  "priority": {
+    "urgent": "Urgent",
+    "high": "High",
+    "normal": "Normal",
+    "low": "Low"
+  },
+  "source": {
+    "bulletin": "Bulletin",
+    "intake": "Intake",
+    "interception": "Interception"
+  },
+  "badge": {
+    "processed": "Processed"
+  },
+  "linked": {
+    "label": "Linked items",
+    "loading": "Loading linked items",
+    "empty": "No reports or documents are linked to this case.",
+    "error": "Linked items could not be loaded"
+  },
+  "board": {
+    "label": "Case board"
+  },
+  "empty": {
+    "title": "Nothing here",
+    "description": "No cases are waiting in this view.",
+    "filteredTitle": "No cases match these filters",
+    "filteredDescription": "Remove a filter or change the search to see more cases.",
+    "pastLastPageTitle": "This page is past the end of the list",
+    "firstPage": "Go to the first page"
+  },
+  "error": {
+    "title": "Cases could not be loaded"
+  }
+}

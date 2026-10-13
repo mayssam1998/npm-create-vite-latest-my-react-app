@@ -10,9 +10,7 @@ entry here.
 | Question | Options | Where it bites |
 |---|---|---|
 | Graph library | Sigma.js **or** Cytoscape | `heavy-visual-modules.md`, the graph feature |
-| API transport | `fetch` **or** axios, wrapped in `apiClient.ts` | `api-layer.md`, `add-api-endpoint` skill |
 | Boundary enforcement | `eslint-plugin-boundaries` **or** `eslint-plugin-import` restricted zones | `architecture.md`, CI |
-| Dark-mode selector | `data-theme` attribute **or** `.dark` class on `<html>` | `styling.md`, `ThemeProvider` |
 | Draft persistence adapter | `idb-keyval` **or** a Zustand `persist` adapter over IndexedDB | `multi-tab-workspace` skill |
 
 ## A proposal recorded as the rule — please confirm
@@ -28,10 +26,6 @@ matters is that props are `onX` and the function behind them is never also `onX`
 
 These are needed before the corresponding work can start:
 
-- **Router library.** The document assumes a router ("defined in the router",
-  `/cases?preview=…`, URL search-param state) but never names one. React Router vs TanStack
-  Router changes the `useUrlState` recipe and the lazy-route registration in the
-  `new-feature-module` skill.
 - **Toast implementation.** Toasts are specified behaviourally ("fired from mutation
   callbacks") but no library is chosen.
 - **Auth.** `app/` is described as holding "auth bootstrap"; no scheme, token storage or
@@ -72,18 +66,15 @@ built — `CaseTable.tsx` for `add-data-table`, and so on.
 
 ## Repository gaps against the stated stack
 
-The repo is a bare Vite + React 19 starter. The React Compiler *is* already enabled. Still
-missing, and intentionally not installed or configured as part of writing these rules:
+Done on Oct 13, 2026 with the Case Management page: `strict: true`, the `@/*` alias, the
+`src/app` / `src/shared` / `src/features` layout, and Tailwind v4, Radix (`radix-ui`), Lucide,
+TanStack Query / Table **v9** / Virtual, Zod v4, i18next + react-i18next,
+cva / clsx / tailwind-merge and React Router v7. Still missing:
 
-- `strict: true` is absent from `tsconfig.app.json` — the rules and the definition of done
-  assume TypeScript strict.
-- No `@/*` → `src/*` path alias in `tsconfig.app.json` or `vite.config.ts`, which every
-  import example depends on.
-- None of Tailwind v4, Radix, Lucide, TanStack, Zustand, react-hook-form, Zod, i18next,
-  cva/clsx/tailwind-merge, MapLibre, deck.gl, D3, Vitest, Testing Library or Playwright is
-  installed.
-- No `src/app`, `src/shared` or `src/features` directories yet.
+- Not installed: Zustand, react-hook-form + `@hookform/resolvers`, MapLibre, deck.gl, D3,
+  Vitest, Testing Library, Playwright.
 - ESLint has rules-of-hooks but not the boundary rules or the no-literal-JSX-text rule.
+- No bundle-budget check (`size-limit`) in the build yet.
 
 ## Internal conflicts in the source document
 

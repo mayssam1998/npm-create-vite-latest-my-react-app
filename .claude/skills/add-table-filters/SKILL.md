@@ -114,5 +114,5 @@ export function CaseFilterBar() {
 - Forget to reset `page` when a filter changes.
 - Build a second filter hook for the same table.
 
-The router is not chosen yet, so `useUrlState` is unbuilt — see
-`.claude/rules/open-questions.md`.
+`useUrlState` exists in `src/shared/hooks/useUrlState.ts` (React Router v7). The real hook is
+`src/features/cases/hooks/useCaseFilters.ts`.

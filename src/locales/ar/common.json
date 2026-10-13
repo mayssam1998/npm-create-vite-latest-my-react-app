@@ -1,0 +1,88 @@
+{
+  "app": {
+    "name": "InSightX",
+    "tagline": "الاستخبارات الهجينة فينيكس"
+  },
+  "nav": {
+    "label": "التنقل الرئيسي",
+    "soon": "قريباً",
+    "sections": {
+      "workspace": "مساحة العمل",
+      "dataEntry": "إدخال البيانات",
+      "analyst": "المحلل",
+      "interception": "الاعتراض"
+    },
+    "caseManagement": "إدارة القضايا",
+    "draftCases": "مسودات القضايا",
+    "myWork": "عملي",
+    "aiAssistant": "المساعد الذكي",
+    "projects": "المشاريع",
+    "promptLibrary": "مكتبة الأوامر",
+    "entities": "الكيانات",
+    "caseIntake": "استلام القضايا",
+    "referenceDatabases": "قواعد البيانات المرجعية",
+    "entityResolution": "مطابقة الكيانات",
+    "dailyBulletin": "النشرة اليومية",
+    "reconcileFaces": "مطابقة الوجوه",
+    "etl": "استخراج البيانات وتحويلها",
+    "workspaceManagement": "إدارة مساحات العمل",
+    "compareRecords": "مقارنة السجلات",
+    "messages": "الرسائل",
+    "mapAnalysis": "تحليل الخرائط",
+    "watchlists": "قوائم المراقبة",
+    "linkAnalysis": "تحليل الروابط",
+    "callAnalysis": "تحليل المكالمات",
+    "reportRegistry": "سجل التقارير",
+    "notBuilt": "غير متوفر بعد"
+  },
+  "header": {
+    "showSidebar": "إظهار الشريط الجانبي",
+    "hideSidebar": "إخفاء الشريط الجانبي",
+    "search": "ابحث في القضايا والكيانات والملفات…",
+    "searchShortcut": "⌘K"
+  },
+  "language": {
+    "switchTo": "English",
+    "switchLabel": "التبديل إلى الإنجليزية"
+  },
+  "theme": {
+    "toDark": "التبديل إلى الوضع الداكن",
+    "toLight": "التبديل إلى الوضع الفاتح"
+  },
+  "comingSoon": {
+    "title": "هذه الوحدة غير متوفرة بعد",
+    "description": "لا يتضمن هذا النموذج الأولي سوى إدارة القضايا.",
+    "back": "العودة إلى إدارة القضايا"
+  },
+  "routeError": {
+    "title": "تعذر تحميل هذه الصفحة",
+    "description": "أوقف خطأ غير متوقع هذه الصفحة. باقي التطبيق لا يزال يعمل.",
+    "reload": "إعادة تحميل الصفحة"
+  },
+  "loading": "جارٍ التحميل…",
+  "errors": {
+    "title": "حدث خطأ ما",
+    "description": "تعذر تحميل البيانات. تحقق من اتصالك وحاول مجدداً.",
+    "retry": "حاول مجدداً"
+  },
+  "table": {
+    "expandColumn": "توسيع",
+    "expandRow": "توسيع الصف",
+    "collapseRow": "طي الصف",
+    "refreshing": "جارٍ التحديث"
+  },
+  "pagination": {
+    "label": "التنقل بين الصفحات",
+    "rowsPerPage": "عدد الصفوف في الصفحة",
+    "range": "{{from}}–{{to}} من {{total}}",
+    "pageOf": "الصفحة {{page}} من {{pageCount}}",
+    "previous": "الصفحة السابقة",
+    "next": "الصفحة التالية"
+  },
+  "filters": {
+    "searchOptions": "ابحث في خيارات {{label}}",
+    "searchPlaceholder": "بحث…",
+    "noMatches": "لا توجد نتائج",
+    "clear": "مسح"
+  }
+}
