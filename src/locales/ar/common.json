@@ -33,7 +33,8 @@
     "linkAnalysis": "تحليل الروابط",
     "callAnalysis": "تحليل المكالمات",
     "reportRegistry": "سجل التقارير",
-    "notBuilt": "غير متوفر بعد"
+    "notBuilt": "غير متوفر بعد",
+    "caseIntakeReview": "مراجعة إدخال القضايا"
   },
   "header": {
     "showSidebar": "إظهار الشريط الجانبي",
@@ -84,5 +85,29 @@
     "searchPlaceholder": "بحث…",
     "noMatches": "لا توجد نتائج",
     "clear": "مسح"
+  },
+  "breadcrumb": {
+    "label": "مسار التنقل"
+  },
+  "confirm": {
+    "cancel": "إلغاء"
+  },
+  "toast": {
+    "label": "الإشعارات",
+    "dismiss": "إغلاق الإشعار"
+  },
+  "form": {
+    "removeTag": "إزالة الوسم {{tag}}",
+    "chooseFile": "اختيار ملف",
+    "replaceFile": "استبدال الملف",
+    "removeFile": "إزالة الملف",
+    "noPreview": "لا تتوفر معاينة لهذا النوع من الملفات."
+  },
+  "validation": {
+    "required": "هذا الحقل مطلوب.",
+    "tooLong": "النص أطول من المسموح.",
+    "invalidDate": "أدخل تاريخاً صحيحاً.",
+    "fileType": "نوع الملف هذا غير مقبول.",
+    "fileTooLarge": "حجم الملف أكبر من الحد المسموح."
   }
 }

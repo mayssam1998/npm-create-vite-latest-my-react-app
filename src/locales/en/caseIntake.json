@@ -1,0 +1,98 @@
+{
+  "page": {
+    "title": "Case intake review",
+    "back": "Back",
+    "openDrafts_one": "{{formattedCount}} draft open",
+    "openDrafts_other": "{{formattedCount}} drafts open"
+  },
+  "tabs": {
+    "label": "Open case drafts",
+    "untitled": "New case",
+    "unsaved": "Not saved as a draft yet",
+    "close": "Close {{title}}"
+  },
+  "header": {
+    "caseNumber": "Case number",
+    "caseNumberPending": "A case number is reserved when you save as draft or create the case."
+  },
+  "status": {
+    "onThisDevice": "Saved on this device",
+    "localOnly": "Saved on this device — not yet saved as a draft",
+    "savedAsDraft": "Saved as draft · {{time}}"
+  },
+  "actions": {
+    "discard": "Discard",
+    "saveDraft": "Save as draft",
+    "savingDraft": "Saving…",
+    "saveDraftShortcut": "Save as draft (Ctrl+S)",
+    "create": "Create case",
+    "creating": "Creating…",
+    "newDraft": "New",
+    "newDraftTitle": "Open a new case draft"
+  },
+  "form": {
+    "sections": {
+      "details": "Case details",
+      "event": "Event",
+      "eventDescription": "What happened, when and where. All optional.",
+      "correspondence": "Correspondence reference",
+      "routing": "Routing"
+    },
+    "title": "Case name",
+    "titlePlaceholder": "Short, factual description",
+    "priority": "Priority",
+    "dueDate": "Due date",
+    "dueDateHint_one": "{{priority}} priority allows {{count}} day.",
+    "dueDateHint_other": "{{priority}} priority allows {{count}} days.",
+    "caseType": "Case type",
+    "caseTypePlaceholder": "Select a case type",
+    "tags": "Tags",
+    "tagsPlaceholder": "Type a tag and press Enter",
+    "tagsHint": "Press Enter or comma to add a tag.",
+    "description": "Description",
+    "descriptionPlaceholder": "What happened, in a few lines.",
+    "eventDate": "When it happened",
+    "eventType": "Event type",
+    "notSet": "Not set",
+    "eventLocation": "Where",
+    "eventLocationPlaceholder": "Street, area or premises",
+    "correspondenceNumber": "Correspondence number",
+    "correspondenceDate": "Correspondence date",
+    "sectionIds": "Sections",
+    "sectionsPlaceholder": "Select sections",
+    "sectionsHint": "The sections that will work on this case.",
+    "referenceDataError": "Case types, event types and sections could not be loaded.",
+    "retry": "Retry"
+  },
+  "correspondence": {
+    "title": "Incoming correspondence",
+    "dropTitle": "Drag & drop the incoming correspondence here",
+    "dropHint": "Optional. One image or PDF per case, up to {{size}}. It stays beside the form while you work."
+  },
+  "closedDrafts": {
+    "button": "Drafts",
+    "label": "Closed drafts — select one to reopen it",
+    "empty": "No closed drafts. Closing a tab keeps its draft here.",
+    "edited": "Edited {{time}}",
+    "trigger_one": "Drafts: {{count}} closed draft",
+    "trigger_other": "Drafts: {{count}} closed drafts"
+  },
+  "empty": {
+    "title": "No case drafts open",
+    "description": "Start a new case, or reopen a draft you closed from Drafts."
+  },
+  "discard": {
+    "title": "Discard this draft?",
+    "description": "Everything entered in “{{title}}” will be deleted, including any saved draft copy. This cannot be undone.",
+    "confirm": "Discard draft",
+    "cancel": "Keep draft"
+  },
+  "toast": {
+    "draftSaved": "Draft saved",
+    "draftSavedDescription": "Case number {{reference}} is reserved for it.",
+    "draftSaveFailed": "The draft could not be saved",
+    "draftSaveFailedDescription": "Your changes are still kept on this device. Try again.",
+    "draftDiscarded": "Draft discarded",
+    "draftDeleteFailed": "The draft was removed here, but its saved copy could not be deleted."
+  }
+}

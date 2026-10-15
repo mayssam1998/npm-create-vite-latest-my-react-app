@@ -5,9 +5,11 @@ import {
   caseCountsSchema,
   caseListResponseSchema,
   caseReferenceDataSchema,
+  caseSchema,
   linkedItemsResponseSchema,
 } from '../model/case';
 import type { CaseCountsParams, CaseListParams } from '../model/caseFilters';
+import type { CreateCaseInput } from '../model/createCase';
 
 export async function fetchCases(params: CaseListParams, signal?: AbortSignal) {
   const data = await apiClient.get('/cases', { params, signal });
@@ -27,4 +29,15 @@ export async function fetchCaseReferenceData(signal?: AbortSignal) {
 export async function fetchCaseLinkedItems(caseId: string, signal?: AbortSignal) {
   const data = await apiClient.get(`/cases/${encodeURIComponent(caseId)}/linked-items`, { signal });
   return linkedItemsResponseSchema.parse(data);
+}
+
+export interface CreateCaseRequest {
+  input: CreateCaseInput;
+  /** The intake draft this case comes from; the server converts it and keeps its reserved number. */
+  draftId?: string;
+}
+
+export async function createCase({ input, draftId }: CreateCaseRequest, signal?: AbortSignal) {
+  const data = await apiClient.post('/cases', { ...input, draftId }, { signal });
+  return caseSchema.parse(data);
 }

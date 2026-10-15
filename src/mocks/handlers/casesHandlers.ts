@@ -1,8 +1,10 @@
 import {
   MOCK_CASES,
+  MOCK_EVENT_TYPES,
   MOCK_LINKED_ITEMS,
   MOCK_OWNERS,
   MOCK_SECTIONS,
+  MOCK_TAGS,
   MOCK_TYPES,
   isoDateFromToday,
   type MockCaseRow,
@@ -34,7 +36,7 @@ function isOverdue(row: { status: MockStatus; dueDate: string }) {
   return row.status !== 'closed' && row.dueDate < isoDateFromToday(0);
 }
 
-function toApiCase(row: MockCaseRow) {
+export function toApiCase(row: MockCaseRow) {
   return {
     id: row.id,
     reference: row.reference,
@@ -168,7 +170,10 @@ export function handleCasesRequest(method: string, path: string, query: URLSearc
   if (path === '/cases') return listCases(query);
   if (path === '/cases/counts') return countCases(query);
   if (path === '/cases/reference-data') {
-    return { status: 200, body: { types: MOCK_TYPES, sections: MOCK_SECTIONS, owners: MOCK_OWNERS } };
+    return {
+      status: 200,
+      body: { types: MOCK_TYPES, sections: MOCK_SECTIONS, owners: MOCK_OWNERS, eventTypes: MOCK_EVENT_TYPES, tags: MOCK_TAGS },
+    };
   }
 
   const linkedItemsMatch = LINKED_ITEMS_PATH.exec(path);

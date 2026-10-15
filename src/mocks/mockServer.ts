@@ -4,6 +4,7 @@
  * will against the real server. Delete this folder (and VITE_USE_MOCKS) when the API exists.
  */
 import { setApiTransport } from '@/shared/lib/apiClient';
+import { handleCaseIntakeRequest } from './handlers/caseIntakeHandlers';
 import { handleCasesRequest } from './handlers/casesHandlers';
 
 const MIN_LATENCY_MS = 250;
@@ -41,7 +42,19 @@ function wait(ms: number, signal: AbortSignal) {
 }
 
 function json(body: unknown, status = 200) {
+  // 204/205 responses must not carry a body.
+  if (status === 204) return new Response(null, { status });
   return new Response(JSON.stringify(body), { status, headers: { 'Content-Type': 'application/json' } });
+}
+
+async function readJsonBody(request: Request): Promise<unknown> {
+  const text = await request.text();
+  if (!text) return null;
+  try {
+    return JSON.parse(text);
+  } catch {
+    return null;
+  }
 }
 
 async function mockTransport(request: Request) {
@@ -49,7 +62,10 @@ async function mockTransport(request: Request) {
   if (shouldFail()) return json({ message: 'Simulated server error' }, 500);
 
   const url = new URL(request.url);
-  const result = handleCasesRequest(request.method, url.pathname.replace(API_PREFIX, ''), url.searchParams);
+  const path = url.pathname.replace(API_PREFIX, '');
+  const body = request.method === 'GET' ? null : await readJsonBody(request);
+  const result =
+    handleCasesRequest(request.method, path, url.searchParams) ?? handleCaseIntakeRequest(request.method, path, body);
   return result ? json(result.body, result.status) : json({ message: 'Not found' }, 404);
 }
 

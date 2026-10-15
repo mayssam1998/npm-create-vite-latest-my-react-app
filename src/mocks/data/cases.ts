@@ -63,6 +63,17 @@ export const MOCK_SECTIONS: MockReference[] = [
   { id: 'sec-border', name: 'Border Control' },
 ];
 
+export const MOCK_EVENT_TYPES: MockReference[] = [
+  { id: 'event-theft', name: 'Theft / burglary' },
+  { id: 'event-assault', name: 'Assault' },
+  { id: 'event-fraud', name: 'Fraud' },
+  { id: 'event-cyber', name: 'Cyber incident' },
+  { id: 'event-missing', name: 'Missing person' },
+  { id: 'event-traffic', name: 'Traffic incident' },
+  { id: 'event-smuggling', name: 'Smuggling' },
+  { id: 'event-other', name: 'Other' },
+];
+
 export const MOCK_OWNERS: MockReference[] = [
   { id: 'user-michel', name: 'Michel' },
   { id: 'user-ali', name: 'Ali' },
@@ -98,7 +109,7 @@ const TITLES = [
   'Placeholder',
 ];
 
-const TAGS = ['Bulletin', 'Interpol', 'Financial', 'Vehicle', 'Narcotics', 'Cyber'];
+export const MOCK_TAGS = ['Bulletin', 'Interpol', 'Financial', 'Vehicle', 'Narcotics', 'Cyber'];
 
 const STATUS_WEIGHTS: [MockStatus, number][] = [
   ['pendingSignatureIn', 40],
@@ -174,7 +185,7 @@ function createCase(index: number): MockCaseRow {
     updatedAt: isoDateFromToday(-randomInt(0, 30)),
     source: isBulletin ? 'bulletin' : random() < 0.2 ? pick(['intake', 'interception'] as const) : null,
     isProcessed: isBulletin && random() < 0.8,
-    tags: isBulletin ? ['Bulletin'] : TAGS.filter(() => random() < 0.15).slice(0, 2),
+    tags: isBulletin ? ['Bulletin'] : MOCK_TAGS.filter(() => random() < 0.15).slice(0, 2),
     tasks: { done: randomInt(0, total), total },
   };
 }

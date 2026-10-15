@@ -43,6 +43,14 @@
   --color-priority-low: oklch(60% 0.012 150);
 
   --color-danger: oklch(56% 0.2 25);
+  --color-danger-hover: oklch(50% 0.2 25);
+  --color-danger-foreground: oklch(98% 0.01 25);
+  --color-danger-soft: oklch(95% 0.03 25);
+
+  --color-success: oklch(48% 0.11 155);
+
+  /* Translucent layer behind modal dialogs. */
+  --color-overlay: oklch(20% 0.01 150 / 0.45);
 
   --color-accent-amber: oklch(66% 0.15 65);
   --color-accent-red: oklch(56% 0.2 25);
@@ -83,6 +91,13 @@
   --color-priority-low: oklch(62% 0.01 90);
 
   --color-danger: oklch(70% 0.18 25);
+  --color-danger-hover: oklch(76% 0.16 25);
+  --color-danger-foreground: oklch(18% 0.02 25);
+  --color-danger-soft: oklch(28% 0.06 25);
+
+  --color-success: oklch(74% 0.13 155);
+
+  --color-overlay: oklch(8% 0.01 150 / 0.6);
 
   --color-accent-amber: oklch(78% 0.14 70);
   --color-accent-red: oklch(70% 0.18 25);

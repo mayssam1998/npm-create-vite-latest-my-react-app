@@ -11,7 +11,6 @@ entry here.
 |---|---|---|
 | Graph library | Sigma.js **or** Cytoscape | `heavy-visual-modules.md`, the graph feature |
 | Boundary enforcement | `eslint-plugin-boundaries` **or** `eslint-plugin-import` restricted zones | `architecture.md`, CI |
-| Draft persistence adapter | `idb-keyval` **or** a Zustand `persist` adapter over IndexedDB | `multi-tab-workspace` skill |
 
 ## A proposal recorded as the rule — please confirm
 
@@ -26,15 +25,18 @@ matters is that props are `onX` and the function behind them is never also `onX`
 
 These are needed before the corresponding work can start:
 
-- **Toast implementation.** Toasts are specified behaviourally ("fired from mutation
-  callbacks") but no library is chosen.
 - **Auth.** `app/` is described as holding "auth bootstrap"; no scheme, token storage or
   `usePermission` backing is defined.
 - **The full token palette.** `styling.md` carries the three example tokens from the
   document. The real cream/green/amber/red values still have to be extracted from the
   design files.
 - **Backend API shape.** Endpoint paths, pagination envelope and error body are unknown, so
-  the `add-api-endpoint` template uses a placeholder shape.
+  the `add-api-endpoint` template uses a placeholder shape. The mock server assumes a 422
+  body of `{ fieldErrors: { "<dotted.path>": "<message or key>" } }`, read by
+  `getServerFieldIssues` in `shared/lib/formErrors.ts`, plus `PUT/DELETE /case-drafts/:id`.
+- **Priority service levels.** `PRIORITY_DUE_DAYS` (urgent 1 · high 3 · normal 5 · low 10
+  days) in `features/cases/model/createCase.ts` is an assumption; replace with the real
+  values, ideally served as reference data.
 
 ## Skills: planned vs created
 

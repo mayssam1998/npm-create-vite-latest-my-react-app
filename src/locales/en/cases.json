@@ -113,5 +113,9 @@
   },
   "error": {
     "title": "Cases could not be loaded"
+  },
+  "create": {
+    "success": "Case {{reference}} created",
+    "error": "The case could not be created. Check the form and try again."
   }
 }

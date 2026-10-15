@@ -30,7 +30,9 @@ Case detail panels should be routed. Confirms should not.
   the same dialog.
 - One shared `useConfirm()` hook returning a promise, so confirmations do not need
   per-component state.
-- Toasts are fired from mutation callbacks, not from components.
+- Toasts are fired from mutation callbacks, not from components: `toast.success(…)` from
+  `shared/lib/toast.ts`, rendered by `shared/ui/Toaster` (Radix Toast, decided Oct 15,
+  2026). Messages are translated in the mutation hook.
 - Overlay content that fetches must be lazy — mount the query only when the overlay opens.
 - All overlays render in a portal attached to a root with the correct `dir`, so Arabic
   layouts do not break.

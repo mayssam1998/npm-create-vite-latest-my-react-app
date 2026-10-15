@@ -33,7 +33,8 @@
     "linkAnalysis": "Link Analysis",
     "callAnalysis": "Call Analysis",
     "reportRegistry": "Report Registry",
-    "notBuilt": "Not built yet"
+    "notBuilt": "Not built yet",
+    "caseIntakeReview": "Case intake review"
   },
   "header": {
     "showSidebar": "Show sidebar",
@@ -84,5 +85,29 @@
     "searchPlaceholder": "Search…",
     "noMatches": "No matches",
     "clear": "Clear"
+  },
+  "breadcrumb": {
+    "label": "Breadcrumb"
+  },
+  "confirm": {
+    "cancel": "Cancel"
+  },
+  "toast": {
+    "label": "Notifications",
+    "dismiss": "Dismiss notification"
+  },
+  "form": {
+    "removeTag": "Remove tag {{tag}}",
+    "chooseFile": "Choose file",
+    "replaceFile": "Replace file",
+    "removeFile": "Remove file",
+    "noPreview": "No preview is available for this file type."
+  },
+  "validation": {
+    "required": "This field is required.",
+    "tooLong": "This is too long.",
+    "invalidDate": "Enter a valid date.",
+    "fileType": "This file type is not accepted.",
+    "fileTooLarge": "This file is larger than the limit."
   }
 }

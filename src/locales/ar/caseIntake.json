@@ -1,0 +1,110 @@
+{
+  "page": {
+    "title": "مراجعة إدخال القضايا",
+    "back": "رجوع",
+    "openDrafts_zero": "لا توجد مسودات مفتوحة",
+    "openDrafts_one": "مسودة واحدة مفتوحة",
+    "openDrafts_two": "مسودتان مفتوحتان",
+    "openDrafts_few": "{{formattedCount}} مسودات مفتوحة",
+    "openDrafts_many": "{{formattedCount}} مسودة مفتوحة",
+    "openDrafts_other": "{{formattedCount}} مسودة مفتوحة"
+  },
+  "tabs": {
+    "label": "مسودات القضايا المفتوحة",
+    "untitled": "قضية جديدة",
+    "unsaved": "لم تُحفظ كمسودة بعد",
+    "close": "إغلاق {{title}}"
+  },
+  "header": {
+    "caseNumber": "رقم القضية",
+    "caseNumberPending": "يُحجز رقم القضية عند الحفظ كمسودة أو عند إنشاء القضية."
+  },
+  "status": {
+    "onThisDevice": "محفوظة على هذا الجهاز",
+    "localOnly": "محفوظة على هذا الجهاز — لم تُحفظ كمسودة بعد",
+    "savedAsDraft": "حُفظت كمسودة · {{time}}"
+  },
+  "actions": {
+    "discard": "تجاهل",
+    "saveDraft": "حفظ كمسودة",
+    "savingDraft": "جارٍ الحفظ…",
+    "saveDraftShortcut": "حفظ كمسودة (Ctrl+S)",
+    "create": "إنشاء القضية",
+    "creating": "جارٍ الإنشاء…",
+    "newDraft": "جديد",
+    "newDraftTitle": "فتح مسودة قضية جديدة"
+  },
+  "form": {
+    "sections": {
+      "details": "تفاصيل القضية",
+      "event": "الحادثة",
+      "eventDescription": "ما الذي حدث ومتى وأين. جميعها اختيارية.",
+      "correspondence": "مرجع المراسلة",
+      "routing": "الإحالة"
+    },
+    "title": "اسم القضية",
+    "titlePlaceholder": "وصف قصير ودقيق",
+    "priority": "الأولوية",
+    "dueDate": "تاريخ الاستحقاق",
+    "dueDateHint_zero": "الأولوية {{priority}} لا تمنح أي يوم.",
+    "dueDateHint_one": "الأولوية {{priority}} تمنح يوماً واحداً.",
+    "dueDateHint_two": "الأولوية {{priority}} تمنح يومين.",
+    "dueDateHint_few": "الأولوية {{priority}} تمنح {{count}} أيام.",
+    "dueDateHint_many": "الأولوية {{priority}} تمنح {{count}} يوماً.",
+    "dueDateHint_other": "الأولوية {{priority}} تمنح {{count}} يوم.",
+    "caseType": "نوع القضية",
+    "caseTypePlaceholder": "اختر نوع القضية",
+    "tags": "الوسوم",
+    "tagsPlaceholder": "اكتب وسماً واضغط Enter",
+    "tagsHint": "اضغط Enter أو فاصلة لإضافة وسم.",
+    "description": "الوصف",
+    "descriptionPlaceholder": "ما الذي حدث، في بضعة أسطر.",
+    "eventDate": "متى حدثت",
+    "eventType": "نوع الحادثة",
+    "notSet": "غير محدد",
+    "eventLocation": "أين",
+    "eventLocationPlaceholder": "الشارع أو المنطقة أو المبنى",
+    "correspondenceNumber": "رقم المراسلة",
+    "correspondenceDate": "تاريخ المراسلة",
+    "sectionIds": "الأقسام",
+    "sectionsPlaceholder": "اختر الأقسام",
+    "sectionsHint": "الأقسام التي ستعمل على هذه القضية.",
+    "referenceDataError": "تعذّر تحميل أنواع القضايا وأنواع الحوادث والأقسام.",
+    "retry": "إعادة المحاولة"
+  },
+  "correspondence": {
+    "title": "المراسلة الواردة",
+    "dropTitle": "اسحب المراسلة الواردة وأفلتها هنا",
+    "dropHint": "اختياري. صورة واحدة أو ملف PDF واحد لكل قضية، حتى {{size}}. يبقى بجانب النموذج أثناء العمل."
+  },
+  "closedDrafts": {
+    "button": "المسودات",
+    "label": "المسودات المغلقة — اختر واحدة لإعادة فتحها",
+    "empty": "لا توجد مسودات مغلقة. إغلاق التبويب يحتفظ بمسودته هنا.",
+    "edited": "عُدّلت {{time}}",
+    "trigger_zero": "المسودات: لا توجد مسودات مغلقة",
+    "trigger_one": "المسودات: مسودة مغلقة واحدة",
+    "trigger_two": "المسودات: مسودتان مغلقتان",
+    "trigger_few": "المسودات: {{count}} مسودات مغلقة",
+    "trigger_many": "المسودات: {{count}} مسودة مغلقة",
+    "trigger_other": "المسودات: {{count}} مسودة مغلقة"
+  },
+  "empty": {
+    "title": "لا توجد مسودات قضايا مفتوحة",
+    "description": "ابدأ قضية جديدة، أو أعد فتح مسودة أغلقتها من قائمة المسودات."
+  },
+  "discard": {
+    "title": "تجاهل هذه المسودة؟",
+    "description": "سيُحذف كل ما أُدخل في «{{title}}»، بما في ذلك أي نسخة محفوظة من المسودة. لا يمكن التراجع عن ذلك.",
+    "confirm": "تجاهل المسودة",
+    "cancel": "الاحتفاظ بالمسودة"
+  },
+  "toast": {
+    "draftSaved": "حُفظت المسودة",
+    "draftSavedDescription": "حُجز لها رقم القضية {{reference}}.",
+    "draftSaveFailed": "تعذّر حفظ المسودة",
+    "draftSaveFailedDescription": "ما زالت تغييراتك محفوظة على هذا الجهاز. حاول مرة أخرى.",
+    "draftDiscarded": "تم تجاهل المسودة",
+    "draftDeleteFailed": "أُزيلت المسودة هنا، لكن تعذّر حذف نسختها المحفوظة."
+  }
+}

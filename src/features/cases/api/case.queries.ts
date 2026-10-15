@@ -1,7 +1,16 @@
 // Layer 3: the hooks components import. Nothing else in the feature touches layer 2.
-import { keepPreviousData, useQuery } from '@tanstack/react-query';
+import { keepPreviousData, useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
+import { useTranslation } from 'react-i18next';
+import { toast } from '@/shared/lib/toast';
 import type { CaseCountsParams, CaseListParams } from '../model/caseFilters';
-import { fetchCaseCounts, fetchCaseLinkedItems, fetchCaseReferenceData, fetchCases } from './case.api';
+import {
+  createCase,
+  fetchCaseCounts,
+  fetchCaseLinkedItems,
+  fetchCaseReferenceData,
+  fetchCases,
+  type CreateCaseRequest,
+} from './case.api';
 import { caseKeys } from './caseKeys';
 
 const SECOND = 1_000;
@@ -39,5 +48,25 @@ export function useCaseLinkedItems(caseId: string) {
     queryKey: caseKeys.linkedItems(caseId),
     queryFn: ({ signal }) => fetchCaseLinkedItems(caseId, signal),
     staleTime: 30 * SECOND,
+  });
+}
+
+/**
+ * Create a case. Invalidates every case view and toasts the result; field-level server
+ * errors are left to the form (`applyFieldIssues` in the caller's `onError`).
+ */
+export function useCreateCase() {
+  const { t } = useTranslation('cases');
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: (request: CreateCaseRequest) => createCase(request),
+    onSuccess: (created) => {
+      toast.success(t('create.success', { reference: created.reference }), created.title);
+      return queryClient.invalidateQueries({ queryKey: caseKeys.all });
+    },
+    onError: () => {
+      toast.error(t('create.error'));
+    },
   });
 }

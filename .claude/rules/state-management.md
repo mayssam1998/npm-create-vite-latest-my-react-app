@@ -40,7 +40,10 @@ state.
 - **Always subscribe with a selector**: `useDraftsStore(s => s.drafts[id])`, never
   `useDraftsStore()`. Selecting the whole store defeats the point of using Zustand.
 - Never mutate — produce a new value, including in Immer-style updates.
-- Persistence: IndexedDB for anything that can hold a lot of text or a file reference.
+- Persistence: IndexedDB for anything that can hold a lot of text or a file reference —
+  Zustand `persist` with `createIndexedDbStorage()` from `shared/lib/indexedDbStorage.ts`
+  (idb-keyval underneath, decided Oct 15, 2026). It stores structured clones, so `File`s
+  persist. Use `skipHydration` and hydrate on demand (see `ensureDraftsHydrated`).
   See the `multi-tab-workspace` skill.
 
 URL state is a first-class tier, not a fallback — see `tables-filters-search.md`.

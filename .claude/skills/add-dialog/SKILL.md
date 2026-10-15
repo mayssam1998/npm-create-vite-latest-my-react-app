@@ -98,4 +98,5 @@ export function CaseRowActions({ caseId }: CaseRowActionsProps) {
 - Render outside the portal root that carries the correct `dir` — Arabic layouts break.
 - Add per-component `useState` for a confirmation. Use `useConfirm()`.
 
-A toast library has not been chosen — see `.claude/rules/open-questions.md`.
+Toasts: Radix Toast via `shared/ui/Toaster`; fire with `toast` from `shared/lib/toast.ts`.
+Confirmations: `useConfirm()` (`shared/hooks/useConfirm.ts`), backed by `shared/ui/ConfirmDialog`.

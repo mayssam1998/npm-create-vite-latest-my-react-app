@@ -1,9 +1,9 @@
 import { Languages, Moon, PanelLeft, Search, Sun } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link, useMatches } from 'react-router';
+import { Link } from 'react-router';
 import { useTheme } from '@/shared/hooks/useTheme';
 import { Button } from '@/shared/ui/Button';
-import { isRouteHandle } from '../router/routeHandle';
+import { Breadcrumbs } from './Breadcrumbs';
 import { SIDEBAR_ID } from './navigation';
 
 interface HeaderProps {
@@ -17,9 +17,6 @@ const GLOBAL_SEARCH_PATH = '/search';
 export function Header({ isSidebarOpen, onSidebarToggle }: HeaderProps) {
   const { t, i18n } = useTranslation('common');
   const { theme, toggleTheme } = useTheme();
-  const matches = useMatches();
-
-  const titleKey = matches.map((match) => match.handle).findLast(isRouteHandle)?.titleKey;
   const ThemeIcon = theme === 'dark' ? Sun : Moon;
   const themeLabel = theme === 'dark' ? t('theme.toLight') : t('theme.toDark');
 
@@ -39,7 +36,7 @@ export function Header({ isSidebarOpen, onSidebarToggle }: HeaderProps) {
       >
         <PanelLeft aria-hidden className="rtl:-scale-x-100" />
       </Button>
-      {titleKey && <p className="hidden text-sm font-medium text-content md:block">{t(titleKey)}</p>}
+      <Breadcrumbs />
       <Link
         to={GLOBAL_SEARCH_PATH}
         className="mx-auto flex h-8 w-full max-w-md items-center gap-2 rounded-md border border-border bg-surface px-3 text-sm text-content-subtle hover:border-border-strong"

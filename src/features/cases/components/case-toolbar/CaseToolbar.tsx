@@ -1,6 +1,6 @@
 import { LayoutGrid, Plus, Table2, Upload } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router';
+import { Form, Link } from 'react-router';
 import { useFormatters } from '@/shared/hooks/useFormatters';
 import { Button } from '@/shared/ui/Button';
 import { SearchInput } from '@/shared/ui/SearchInput';
@@ -10,8 +10,11 @@ import { useCaseFilters } from '../../hooks/useCaseFilters';
 import { useCaseView } from '../../hooks/useCaseView';
 import { CASE_TABS, type CaseTab, type CaseView } from '../../model/caseFilters';
 
-/** The intake module is not built yet; both actions land on its route. */
-const CASE_INTAKE_PATH = '/case-intake';
+/** Bulk intake is not built yet; the action lands on its placeholder route. */
+const BULK_INTAKE_PATH = '/case-intake';
+
+/** POSTing here opens a new draft tab in the case intake workspace (a route action). */
+const NEW_CASE_ACTION_PATH = '/cases/intake';
 
 export function CaseToolbar() {
   const { t } = useTranslation('cases');
@@ -49,17 +52,17 @@ export function CaseToolbar() {
       <div className="ms-auto flex flex-wrap items-center gap-2">
         <SegmentedControl label={t('view.label')} items={viewItems} value={view} onValueChange={setView} />
         <Button asChild>
-          <Link to={CASE_INTAKE_PATH}>
+          <Link to={BULK_INTAKE_PATH}>
             <Upload aria-hidden />
             {t('actions.bulkUpload')}
           </Link>
         </Button>
-        <Button asChild variant="primary">
-          <Link to={CASE_INTAKE_PATH}>
+        <Form method="post" action={NEW_CASE_ACTION_PATH}>
+          <Button type="submit" variant="primary">
             <Plus aria-hidden />
             {t('actions.newCase')}
-          </Link>
-        </Button>
+          </Button>
+        </Form>
       </div>
     </div>
   );

@@ -61,11 +61,14 @@ export const caseCountsSchema = z.object({
   all: z.number().int().nonnegative(),
 });
 
-/** Options for the Type / Section / Owner filters. */
+/** Options for the Type / Section / Owner filters and the case form. */
 export const caseReferenceDataSchema = z.object({
   types: z.array(referenceSchema),
   sections: z.array(referenceSchema),
   owners: z.array(referenceSchema),
+  eventTypes: z.array(referenceSchema),
+  /** Tags already in use — offered as suggestions; new ones are allowed. */
+  tags: z.array(z.string()),
 });
 
 /** A report or document linked to a case — shown in the expanded row. */
