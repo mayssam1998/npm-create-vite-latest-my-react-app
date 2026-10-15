@@ -38,9 +38,39 @@ src/
 
 ## Enforcement
 
-Rules 1 and 2 are enforced in CI with `eslint-plugin-boundaries` or
-`eslint-plugin-import` restricted zones (choice open — see `open-questions.md`).
-**A boundary that is not enforced by a tool is a boundary that lasts about four weeks.**
+**`eslint-plugin-boundaries`** (decided Oct 15, 2026), configured in `eslint.config.js` and
+run by `npm run lint`. **A boundary that is not enforced by a tool is a boundary that lasts
+about four weeks.**
+
+Chosen over `eslint-plugin-import` restricted zones because that plugin does not support
+ESLint 10, and because `boundaries` knows what a feature is: "another feature only through
+its `index.ts`" is one policy, not one zone per pair of the sixteen modules. Imports are
+resolved through `tsconfig.app.json` (`eslint-import-resolver-typescript`), so `@/…` aliases
+and relative paths are checked alike. Both are dev-only; nothing reaches the bundle.
+
+What the config enforces (default is **disallow** — an import needs a policy to pass):
+
+| From | May import |
+|---|---|
+| `src/main.tsx` | `app/`, `src/*.css` |
+| `app/` | anything — including deep `features/*/pages/*` imports for lazy routes |
+| `shared/` | `shared/` only (rule 1) |
+| `features/<x>/` | `shared/`, anything in `features/<x>/`, another feature's `index.ts` only (rule 2) |
+| `mocks/` | `mocks/`, `shared/` |
+
+Nothing but `app/` imports `app/` (rule 4) and nothing but `app/` imports `mocks/`. Also
+enforced: `components/`, `pages/` and `hooks/` never import `api/*.api.ts` (layer 3 only —
+`api-layer.md`); `*.api.ts` imports no React; features never import `radix-ui`
+(`overlays.md`); only `shared/lib/apiClient.ts` uses `fetch`. A file under `src/` outside
+every element is an error (`boundaries/no-unknown-files`) — a new top-level folder must be
+added to the config deliberately.
+
+Feedback loops: the VS Code ESLint extension (recommended in `.vscode/extensions.json`)
+shows violations as you edit; `.githooks/pre-commit` runs `npm run lint` and aborts the
+commit on failure. `npm install` activates the hook via the `prepare` script
+(`core.hooksPath`). `git commit --no-verify` bypasses it, so a CI lint step is still needed.
+
+Rule 3 ("move it to `shared/`") is a judgement call no tool can make; it stays a review rule.
 
 The `@/*` path alias resolves to `src/*` in both `tsconfig.app.json` and `vite.config.ts`.
 

@@ -1,0 +1,3 @@
+#!/bin/sh
+# Blocks the commit when lint fails — includes the module-boundary rules (eslint.config.js).
+npm run lint || { echo "Lint failed (boundary rules included). Commit aborted."; exit 1; }

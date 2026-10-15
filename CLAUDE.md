@@ -22,13 +22,15 @@ dropdowns) or native React/browser APIs do the job. Never add a library just for
 convenience. If one is truly needed, pick the lightest and justify it briefly — see
 "Lightweight dependencies" in `.claude/rules/performance.md`.
 
-## Import direction — enforce in CI
+## Import direction — enforced by `npm run lint` (`eslint-plugin-boundaries`)
 
 1. `shared/` never imports from `features/`. Ever.
 2. A feature imports another feature **only through its `index.ts`**, never a deep path.
 3. If two features need the same thing it moves to `shared/`. Never import sideways to
    avoid the move.
 4. `app/` may import anything. Nothing imports `app/`.
+
+A lint error here means move the code, never loosen `eslint.config.js`.
 
 Layout: `src/app/` · `src/shared/{ui,lib,hooks,types}/` ·
 `src/features/<domain>/{api,components,hooks,model,pages}/ + index.ts`.

@@ -17,8 +17,8 @@ worse.
 - ESLint, including rules-of-hooks, the boundary rules, and the no-literal-JSX-text rule.
 - The bundle budgets in `performance.md`.
 
-> Not yet configured: `strict` is absent from `tsconfig.app.json`, and the boundary and
-> literal-string ESLint rules are not in `eslint.config.js`.
+> Not yet configured: the literal-string ESLint rule, the bundle budgets, and a CI pipeline
+> to run them. The boundary rules are in `eslint.config.js` (see `architecture.md`).
 
 ## Definition of done for a feature task
 

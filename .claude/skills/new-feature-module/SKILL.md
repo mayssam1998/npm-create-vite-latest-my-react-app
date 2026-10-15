@@ -33,8 +33,9 @@ src/features/<domain>/
 4. **Create the i18n namespace** `src/locales/<lang>/<domain>.json`, loaded with the route —
    never merged into a single global file.
 5. **Prefetch on intent** — the sidebar item starts loading the chunk on hover.
-6. **Check the boundaries**: nothing in `shared/` imports this feature; this feature imports
-   others only through their `index.ts`.
+6. **Run `npm run lint`** — `eslint-plugin-boundaries` fails if `shared/` imports this
+   feature or this feature deep-imports another. `src/features/*` is already a known element,
+   so a new feature needs no config change.
 
 ## Template
 

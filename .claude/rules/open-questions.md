@@ -10,7 +10,6 @@ entry here.
 | Question | Options | Where it bites |
 |---|---|---|
 | Graph library | Sigma.js **or** Cytoscape | `heavy-visual-modules.md`, the graph feature |
-| Boundary enforcement | `eslint-plugin-boundaries` **or** `eslint-plugin-import` restricted zones | `architecture.md`, CI |
 
 ## A proposal recorded as the rule — please confirm
 
@@ -75,7 +74,9 @@ cva / clsx / tailwind-merge and React Router v7. Still missing:
 
 - Not installed: Zustand, react-hook-form + `@hookform/resolvers`, MapLibre, deck.gl, D3,
   Vitest, Testing Library, Playwright.
-- ESLint has rules-of-hooks but not the boundary rules or the no-literal-JSX-text rule.
+- ESLint has rules-of-hooks and the boundary rules (Oct 15, 2026) but not the
+  no-literal-JSX-text rule.
+- No CI pipeline yet — every "enforce in CI" currently means `npm run lint` / `npm run build`.
 - No bundle-budget check (`size-limit`) in the build yet.
 
 ## Internal conflicts in the source document
