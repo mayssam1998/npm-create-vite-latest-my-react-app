@@ -46,6 +46,34 @@ With sixteen sidebar modules the initial bundle must contain almost none of them
 **Fail the build when a budget is exceeded** (`vite-plugin-bundle-visualizer` +
 `size-limit`). A budget that only produces a warning is not a budget.
 
+## Lightweight dependencies
+
+This app carries maps, graphs and heavy visualisations, so every kilobyte and every
+runtime cost competes with them. Before adding a dependency, work down this list:
+
+1. **Can what we already have do it?** Existing libraries (Radix, TanStack, cva, Lucide,
+   i18next, Zod) and native React/browser APIs (`Intl`, `fetch`, `AbortController`,
+   `IntersectionObserver`, `ResizeObserver`, CSS) come first. Toasts, dialogs, tooltips,
+   popovers and dropdowns are Radix primitives wrapped once in `shared/ui/` — customise
+   those; never install a second UI kit for them.
+2. **Is it only for convenience?** Then don't add it. A small local helper beats a
+   dependency used in one place.
+3. **Does the existing option genuinely fall short** on function, accessibility, design
+   or performance? Only then evaluate alternatives, and recommend the lightest one that
+   fits.
+
+When evaluating a candidate, check: gzipped size, tree-shaking (ESM, `sideEffects`),
+whether it can sit behind a lazy route or dynamic import, runtime cost, overlap with
+something already installed, and its effect on the map/graph chunks and the budgets above.
+
+If a dependency is justified, say so in the PR or reply in a few lines: why the existing
+options are insufficient, and why this one is the best trade-off (size, alternatives
+considered). That is the "note saying why" the definition of done requires.
+
+Equally: no speculative abstractions, duplicated utilities or over-engineering — but
+don't trade away readability or maintainability just to save lines. Check `shared/lib`
+and `shared/hooks` before writing a helper.
+
 ## Other required practices
 
 Skeletons instead of full-page spinners · `requestAnimationFrame` for animation ·

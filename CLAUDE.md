@@ -16,6 +16,12 @@ Vitest + Testing Library + Playwright.
 No Redux. No CSS Modules, styled-components or Emotion. No new library without a note
 saying why.
 
+**Keep it light.** This app carries heavy maps and graphs, so before adding any
+dependency check whether existing libraries (e.g. Radix for toasts, dialogs, tooltips,
+dropdowns) or native React/browser APIs do the job. Never add a library just for
+convenience. If one is truly needed, pick the lightest and justify it briefly — see
+"Lightweight dependencies" in `.claude/rules/performance.md`.
+
 ## Import direction — enforce in CI
 
 1. `shared/` never imports from `features/`. Ever.
