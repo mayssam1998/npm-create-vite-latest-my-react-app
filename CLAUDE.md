@@ -45,7 +45,7 @@ Details: `.claude/rules/architecture.md`.
 | Other `.ts` | camelCase file | `formatCaseNumber.ts` |
 | Folder | kebab-case | `case-intake/` |
 | Callback prop | starts with `on` | `onRowSelect` |
-| Handler in a component | `handleX` — never also `onX` | `handleStatusChange` |
+| Handler in a component | `handleX` (confirmed Oct 15, 2026) — never also `onX` | `handleStatusChange` |
 | Boolean prop / state | `is` `has` `can` `should` | `isLoading`, `canEdit` |
 | Type / interface | PascalCase, no `I` prefix | `Case`, `CaseFilters` |
 | Zod schema | `xSchema` | `createCaseSchema` |

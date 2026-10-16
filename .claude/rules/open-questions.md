@@ -11,15 +11,6 @@ entry here.
 |---|---|---|
 | Graph library | Sigma.js **or** Cytoscape | `heavy-visual-modules.md`, the graph feature |
 
-## A proposal recorded as the rule — please confirm
-
-**Handler naming.** You proposed `dropdownChangeHandler` (`xHandler`). The document
-recommends `handleDropdownChange` (`handleX`) instead, on the practical grounds that it
-matches React tooling, library examples and Claude's default output, removing a correction
-step on every file. Every example in the document uses `handleX`, so **`handleX` is written
-into `CLAUDE.md` as the active rule**. Say the word and it flips — the rule that actually
-matters is that props are `onX` and the function behind them is never also `onX`.
-
 ## Not specified anywhere in the source document
 
 These are needed before the corresponding work can start:
