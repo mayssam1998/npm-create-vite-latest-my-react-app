@@ -1,0 +1,182 @@
+/*
+ * Tailwind v4 bridge for the O.P.H.I.S tokens. Copied verbatim from
+ * src/styles.css: the dark variant, the @theme inline map (token -> utility,
+ * e.g. --status-open -> bg-status-open / text-status-open), the scroll-thin
+ * utility and the base layer.
+ *
+ * Tokens NOT mapped to utilities in the source (use them through var()):
+ *   --map-id-1..6, --brand-green, --brand-gold, --ophis-grid, --ophis-scan,
+ *   --shadow-elegant, --shadow-hover, all --board-*.
+ *   e.g. className="bg-[var(--map-id-1)]" or style={{ color: "var(--brand-gold)" }}
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", "Noto Sans Arabic", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --color-ophis-glow: var(--ophis-glow);
+  --color-ophis-glass: var(--ophis-glass);
+  --color-status-open: var(--status-open);
+  --color-status-open-soft: var(--status-open-soft);
+  --color-status-progress: var(--status-progress);
+  --color-status-progress-soft: var(--status-progress-soft);
+  --color-status-review: var(--status-review);
+  --color-status-review-soft: var(--status-review-soft);
+  --color-status-closed: var(--status-closed);
+  --color-status-closed-soft: var(--status-closed-soft);
+  --color-status-draft: var(--status-draft);
+  --color-status-draft-soft: var(--status-draft-soft);
+  --color-status-done: var(--status-done);
+  --color-status-done-soft: var(--status-done-soft);
+  --color-certainty-confirmed: var(--certainty-confirmed);
+  --color-certainty-confirmed-soft: var(--certainty-confirmed-soft);
+  --color-certainty-probable: var(--certainty-probable);
+  --color-certainty-probable-soft: var(--certainty-probable-soft);
+  --color-status-ack: var(--status-ack);
+  --color-status-ack-soft: var(--status-ack-soft);
+
+  --color-priority-low: var(--priority-low);
+  --color-priority-normal: var(--priority-normal);
+  --color-priority-high: var(--priority-high);
+  --color-priority-urgent: var(--priority-urgent);
+  --color-tag-neutral: var(--tag-neutral);
+  --color-tag-neutral-fg: var(--tag-neutral-fg);
+  --color-tag-sand: var(--tag-sand);
+  --color-tag-sand-fg: var(--tag-sand-fg);
+  --color-tag-sage: var(--tag-sage);
+  --color-tag-sage-fg: var(--tag-sage-fg);
+  --color-tag-slate: var(--tag-slate);
+  --color-tag-slate-fg: var(--tag-slate-fg);
+  --color-tag-clay: var(--tag-clay);
+  --color-tag-clay-fg: var(--tag-clay-fg);
+  --color-surface-subtle: var(--surface-subtle);
+
+  --color-entity-person: var(--entity-person);
+  --color-entity-vehicle: var(--entity-vehicle);
+  --color-entity-phone: var(--entity-phone);
+  --color-entity-device: var(--entity-device);
+  --color-entity-location: var(--entity-location);
+  --color-entity-organization: var(--entity-organization);
+  --color-entity-email: var(--entity-email);
+  --color-entity-social: var(--entity-social);
+  --color-entity-case: var(--entity-case);
+
+  /* analyst event semantics */
+  --color-ev-in: var(--ev-in);
+  --color-ev-in-soft: var(--ev-in-soft);
+  --color-ev-out: var(--ev-out);
+  --color-ev-out-soft: var(--ev-out-soft);
+  --color-ev-sms: var(--ev-sms);
+  --color-ev-sms-soft: var(--ev-sms-soft);
+  --color-ev-data: var(--ev-data);
+  --color-ev-data-soft: var(--ev-data-soft);
+  --color-ev-night: var(--ev-night);
+  --color-ev-night-soft: var(--ev-night-soft);
+  --color-ev-bar: var(--ev-bar);
+  --color-ev-alert: var(--ev-alert);
+  --color-ev-alert-soft: var(--ev-alert-soft);
+  --color-vip: var(--vip);
+  --color-vip-soft: var(--vip-soft);
+  --color-vip-foreground: var(--vip-foreground);
+  --color-ev-ok: var(--ev-ok);
+  --color-ev-ok-soft: var(--ev-ok-soft);
+  --color-ev-warn: var(--ev-warn);
+  --color-ev-warn-soft: var(--ev-warn-soft);
+  --color-ev-info: var(--ev-info);
+  --color-ev-info-soft: var(--ev-info-soft);
+
+  /* interception: one colour per side of a call */
+  --color-int-speaker-a: var(--int-speaker-a);
+  --color-int-speaker-b: var(--int-speaker-b);
+  --color-int-speaker-none: var(--int-speaker-none);
+
+  /* reference database highlight palette (admin picks a key) */
+  --color-ref-black: var(--ref-black);
+  --color-ref-black-soft: var(--ref-black-soft);
+  --color-ref-red: var(--ref-red);
+  --color-ref-red-soft: var(--ref-red-soft);
+  --color-ref-green: var(--ref-green);
+  --color-ref-green-soft: var(--ref-green-soft);
+  --color-ref-blue: var(--ref-blue);
+  --color-ref-blue-soft: var(--ref-blue-soft);
+  --color-ref-amber: var(--ref-amber);
+  --color-ref-amber-soft: var(--ref-amber-soft);
+  --color-ref-violet: var(--ref-violet);
+  --color-ref-violet-soft: var(--ref-violet-soft);
+  --color-ref-teal: var(--ref-teal);
+  --color-ref-teal-soft: var(--ref-teal-soft);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Slim scrollbars for dense workspace panes. */
+@utility scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in oklab, var(--color-border) 80%, var(--color-foreground)) transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--color-border) 70%, var(--color-foreground));
+  }
+  &::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}

@@ -1,0 +1,13 @@
+/*
+ * Entry point for a Tailwind v4 project. Import this ONE file from your app
+ * (e.g. in main.tsx: import "./design-system/index.css").
+ * Order matters: tokens before the @theme bridge is not required (inline
+ * theme reads var() at use time) but keep extras last so it can override.
+ */
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@import "./css/fonts.css";
+@import "./css/tokens.css";
+@import "./css/tailwind-theme.css";
+@import "./css/extras.css";
