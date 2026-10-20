@@ -133,7 +133,7 @@ function DataTableRow<TData extends RowData>({
 
   return (
     <tbody ref={ref} data-index={dataIndex}>
-      <tr className={cn('hover:bg-surface-hover', isExpanded && 'bg-surface-muted')}>
+      <tr className={cn('hover:bg-accent', isExpanded && 'bg-muted')}>
         {renderExpandedRow && (
           <td className="border-b border-border ps-2 align-middle">
             <button
@@ -142,7 +142,7 @@ function DataTableRow<TData extends RowData>({
               aria-controls={isExpanded ? detailsId : undefined}
               aria-label={isExpanded ? t('table.collapseRow') : t('table.expandRow')}
               onClick={row.getToggleExpandedHandler()}
-              className="inline-flex size-6 items-center justify-center rounded text-content-subtle hover:bg-surface-hover hover:text-content"
+              className="inline-flex size-6 items-center justify-center rounded text-muted-foreground hover:bg-accent hover:text-foreground"
             >
               <ExpandIcon aria-hidden className="size-4 rtl:-scale-x-100" />
             </button>
@@ -156,7 +156,7 @@ function DataTableRow<TData extends RowData>({
       </tr>
       {isExpanded && renderExpandedRow && (
         <tr id={detailsId}>
-          <td colSpan={columnCount} className="border-b border-border bg-surface-muted p-0">
+          <td colSpan={columnCount} className="border-b border-border bg-muted p-0">
             {renderExpandedRow(row.original)}
           </td>
         </tr>

@@ -25,7 +25,7 @@ export function Popover({ trigger, children, align = 'start', className }: Popov
           sideOffset={6}
           collisionPadding={16}
           className={cn(
-            'z-50 w-64 rounded-lg border border-border bg-surface-raised p-2 text-content shadow-lg',
+            'z-50 w-64 rounded-lg border border-border bg-popover p-2 text-popover-foreground shadow-lg',
             className,
           )}
         >

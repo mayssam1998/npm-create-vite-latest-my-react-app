@@ -30,7 +30,7 @@ export default function CaseIntakePage() {
           </Link>
         </Button>
         <h1 className="sr-only">{t('page.title')}</h1>
-        <p className="text-sm text-content-muted">
+        <p className="text-sm text-muted-foreground">
           {t('page.openDrafts', { count: openCount, formattedCount: formatNumber(openCount) })}
         </p>
         <div className="ms-auto">

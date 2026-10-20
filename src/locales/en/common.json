@@ -40,15 +40,18 @@
     "showSidebar": "Show sidebar",
     "hideSidebar": "Hide sidebar",
     "search": "Search cases, entities, profiles…",
-    "searchShortcut": "⌘K"
+    "searchShortcut": "⌘K",
+    "userMenu": "Account menu"
   },
   "language": {
-    "switchTo": "العربية",
-    "switchLabel": "Switch to Arabic"
+    "switchTo": "العربية"
   },
   "theme": {
-    "toDark": "Switch to dark mode",
-    "toLight": "Switch to light mode"
+    "family": "Theme family",
+    "familyDefault": "Default",
+    "familyAnalyst": "Analyst",
+    "dark": "Dark theme",
+    "light": "Light theme"
   },
   "comingSoon": {
     "title": "This module is not built yet",

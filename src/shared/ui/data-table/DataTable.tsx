@@ -103,7 +103,7 @@ export function DataTable<TData extends RowData>({
   });
 
   return (
-    <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-border bg-surface-raised">
+    <div className="relative flex min-h-0 flex-1 flex-col overflow-hidden rounded-lg border border-border bg-card">
       {isFetching && (
         <div role="status" className="absolute inset-x-0 top-0 z-20 h-0.5 animate-pulse bg-primary">
           <span className="sr-only">{t('table.refreshing')}</span>
@@ -122,7 +122,7 @@ export function DataTable<TData extends RowData>({
               <col key={header.id} style={{ width: declaredWidths[index] }} />
             ))}
           </colgroup>
-          <thead className="sticky top-0 z-10 bg-surface-raised">
+          <thead className="sticky top-0 z-10 bg-card">
             <tr>
               {canExpand && (
                 <th scope="col" className="border-b border-border">
@@ -134,13 +134,13 @@ export function DataTable<TData extends RowData>({
                   key={header.id}
                   scope="col"
                   aria-sort={canSort ? ARIA_SORT[sortState] : undefined}
-                  className="border-b border-border px-3 py-2.5 text-start text-xs font-semibold tracking-wide text-content-muted uppercase"
+                  className="border-b border-border px-3 py-2.5 text-start text-xs font-semibold tracking-wide text-muted-foreground uppercase"
                 >
                   {canSort ? (
                     <button
                       type="button"
                       onClick={header.column.getToggleSortingHandler()}
-                      className="inline-flex items-center gap-1 rounded uppercase hover:text-content"
+                      className="inline-flex items-center gap-1 rounded uppercase hover:text-foreground"
                     >
                       {content}
                       <SortIcon aria-hidden className="size-3.5" />

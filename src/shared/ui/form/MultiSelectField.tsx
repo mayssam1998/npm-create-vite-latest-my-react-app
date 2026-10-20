@@ -54,9 +54,9 @@ export function MultiSelectField({
               {hasSelection ? (
                 <span className="truncate">{selectedLabels.join(', ')}</span>
               ) : (
-                <span className="truncate text-content-subtle">{placeholder}</span>
+                <span className="truncate text-muted-foreground">{placeholder}</span>
               )}
-              <ChevronDown aria-hidden className="text-content-subtle" />
+              <ChevronDown aria-hidden className="text-muted-foreground" />
             </button>
           }
         >

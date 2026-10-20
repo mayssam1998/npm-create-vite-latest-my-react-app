@@ -9,11 +9,11 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-primary-foreground hover:bg-primary-hover',
-        secondary: 'border border-border bg-surface-raised text-content hover:bg-surface-hover',
-        ghost: 'text-content-muted hover:bg-surface-hover hover:text-content',
-        danger: 'bg-danger text-danger-foreground hover:bg-danger-hover',
-        dangerGhost: 'text-danger hover:bg-danger-soft',
+        primary: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        secondary: 'border border-border bg-card text-foreground hover:bg-accent',
+        ghost: 'text-muted-foreground hover:bg-accent hover:text-foreground',
+        danger: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
+        dangerGhost: 'text-destructive hover:bg-destructive/10',
       },
       size: {
         sm: 'h-8 px-3 text-sm',
@@ -21,7 +21,7 @@ const buttonVariants = cva(
         icon: 'size-8',
       },
       isActive: {
-        true: 'border-primary bg-primary-soft text-primary hover:bg-primary-soft',
+        true: 'border-primary bg-accent text-primary hover:bg-accent',
         false: '',
       },
       // While pending, the spinner replaces the button's own icon.

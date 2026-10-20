@@ -17,9 +17,11 @@ These are needed before the corresponding work can start:
 
 - **Auth.** `app/` is described as holding "auth bootstrap"; no scheme, token storage or
   `usePermission` backing is defined.
-- **The full token palette.** `styling.md` carries the three example tokens from the
-  document. The real cream/green/amber/red values still have to be extracted from the
-  design files.
+- **Default-theme fonts vs self-hosting.** The O.P.H.I.S design system (adopted Oct 20,
+  2026) loads Inter and Noto Sans Arabic from Google Fonts (`index.html`), as the source
+  app does. `i18n-rtl.md` requires a self-hosted Arabic font for on-premise deployments.
+  IBM Plex (Sans, Mono, Sans Arabic) is already self-hosted in `public/fonts/`. Decide:
+  self-host Inter + Noto Sans Arabic too, or accept the Google link.
 - **Backend API shape.** Endpoint paths, pagination envelope and error body are unknown, so
   the `add-api-endpoint` template uses a placeholder shape. The mock server assumes a 422
   body of `{ fieldErrors: { "<dotted.path>": "<message or key>" } }`, read by

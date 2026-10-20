@@ -51,7 +51,7 @@ function DraftEditor({ draft }: { draft: CaseDraft }) {
           <div className="lg:min-h-0 lg:flex-1 lg:overflow-y-auto">
             <CaseDraftForm shouldFocusFirstField={isBlankDraft(draft)} />
           </div>
-          <aside className="border-t border-border bg-surface-muted lg:w-96 lg:shrink-0 lg:overflow-y-auto lg:border-s lg:border-t-0 xl:w-lg">
+          <aside className="border-t border-border bg-muted lg:w-96 lg:shrink-0 lg:overflow-y-auto lg:border-s lg:border-t-0 xl:w-lg">
             <CorrespondencePanel />
           </aside>
         </div>

@@ -13,7 +13,7 @@ export function CorrespondencePanel() {
 
   return (
     <section aria-labelledby="correspondence-heading" className="flex h-full min-h-0 flex-col gap-3 p-4 lg:p-6">
-      <h3 id="correspondence-heading" className="text-sm font-semibold text-content">
+      <h3 id="correspondence-heading" className="text-sm font-semibold text-foreground">
         {t('correspondence.title')}
       </h3>
       <FileField

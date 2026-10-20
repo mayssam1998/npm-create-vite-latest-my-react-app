@@ -29,20 +29,20 @@ export function FilePreview({ file, title, unsupportedText, className }: FilePre
 
   if (file.type.startsWith('image/')) {
     return (
-      <div className={cn('flex items-start justify-center overflow-auto rounded-md bg-surface-muted', className)}>
+      <div className={cn('flex items-start justify-center overflow-auto rounded-md bg-muted', className)}>
         <img ref={objectUrlRef} alt={title} className="max-w-full object-contain" />
       </div>
     );
   }
 
   if (file.type === 'application/pdf') {
-    return <iframe ref={objectUrlRef} title={title} className={cn('rounded-md border border-border bg-surface-muted', className)} />;
+    return <iframe ref={objectUrlRef} title={title} className={cn('rounded-md border border-border bg-muted', className)} />;
   }
 
   return (
-    <div className={cn('flex flex-col items-center justify-center gap-2 rounded-md bg-surface-muted p-6 text-center', className)}>
-      <FileText aria-hidden className="size-8 text-content-subtle" />
-      <p className="text-sm text-content-muted">{unsupportedText}</p>
+    <div className={cn('flex flex-col items-center justify-center gap-2 rounded-md bg-muted p-6 text-center', className)}>
+      <FileText aria-hidden className="size-8 text-muted-foreground" />
+      <p className="text-sm text-muted-foreground">{unsupportedText}</p>
     </div>
   );
 }

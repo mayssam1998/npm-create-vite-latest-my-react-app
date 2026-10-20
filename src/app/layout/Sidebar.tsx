@@ -1,13 +1,15 @@
-import { Hexagon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router';
 import { cn } from '@/shared/lib/cn';
 import { NAV_SECTIONS, SIDEBAR_ID, type NavItem } from './navigation';
 
+/** Served from public/brand (copied from the design-system export). */
+const BRAND_MARK_SRC = '/brand/ophis-mark.png';
+
 function getNavLinkClassName({ isActive }: { isActive: boolean }) {
   return cn(
-    'flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm text-content-muted hover:bg-surface-hover hover:text-content',
-    isActive && 'bg-primary-soft font-medium text-primary hover:bg-primary-soft hover:text-primary',
+    'flex items-center gap-2.5 rounded-md px-2.5 py-1.5 text-sm text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
+    isActive && 'bg-sidebar-accent font-medium text-sidebar-accent-foreground',
   );
 }
 
@@ -15,18 +17,18 @@ export function Sidebar() {
   const { t } = useTranslation('common');
 
   return (
-    <aside id={SIDEBAR_ID} className="flex w-64 shrink-0 flex-col border-e border-border bg-surface-raised">
-      <div className="flex h-14 items-center gap-2 border-b border-border px-4">
-        <Hexagon aria-hidden className="size-6 text-primary" />
+    <aside id={SIDEBAR_ID} className="flex w-64 shrink-0 flex-col border-e border-sidebar-border bg-sidebar text-sidebar-foreground">
+      <div className="flex h-14 items-center gap-2 border-b border-sidebar-border px-4">
+        <img src={BRAND_MARK_SRC} alt="" aria-hidden className="size-8 shrink-0" />
         <div className="leading-tight">
-          <p className="text-sm font-semibold tracking-widest text-content">{t('app.name')}</p>
+          <p className="text-sm font-semibold tracking-widest text-foreground">{t('app.name')}</p>
           <p className="text-xs text-primary">{t('app.tagline')}</p>
         </div>
       </div>
       <nav aria-label={t('nav.label')} className="flex-1 overflow-y-auto px-2 py-3">
         {NAV_SECTIONS.map((section) => (
           <div key={section.labelKey} className="mb-4">
-            <p className="px-2.5 pb-1 text-xs font-medium tracking-wider text-content-subtle uppercase">
+            <p className="px-2.5 pb-1 text-xs font-medium tracking-wider text-muted-foreground uppercase">
               {t(section.labelKey)}
             </p>
             <ul>
@@ -49,7 +51,7 @@ function SidebarItem({ item }: { item: NavItem }) {
 
   if (item.isComingSoon) {
     return (
-      <span aria-disabled className="flex items-center gap-2.5 px-2.5 py-1.5 text-sm text-content-subtle">
+      <span aria-disabled className="flex items-center gap-2.5 px-2.5 py-1.5 text-sm text-muted-foreground">
         <Icon aria-hidden className="size-4" />
         {t(item.labelKey)}
         <span className="ms-auto text-xs uppercase">{t('nav.soon')}</span>

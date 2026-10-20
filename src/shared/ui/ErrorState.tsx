@@ -18,9 +18,9 @@ export function ErrorState({ title, description, onRetry, className }: ErrorStat
       role="alert"
       className={cn('flex flex-col items-center justify-center gap-2 px-6 py-16 text-center', className)}
     >
-      <CircleAlert aria-hidden className="size-8 text-danger" />
-      <p className="font-medium text-content">{title ?? t('errors.title')}</p>
-      <p className="max-w-sm text-sm text-content-muted">{description ?? t('errors.description')}</p>
+      <CircleAlert aria-hidden className="size-8 text-destructive" />
+      <p className="font-medium text-foreground">{title ?? t('errors.title')}</p>
+      <p className="max-w-sm text-sm text-muted-foreground">{description ?? t('errors.description')}</p>
       {onRetry && (
         <Button className="mt-2" onClick={onRetry}>
           <RotateCw aria-hidden />

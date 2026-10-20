@@ -1,0 +1,180 @@
+/*
+ * Shared non-token styles, copied verbatim from src/styles.css.
+ * Optional: import only if you use these surfaces.
+ */
+
+/* Login stage: the only place glow, blur, grid and scanlines are allowed. */
+.ophis-stage {
+  background-color: var(--background);
+  background-image:
+    radial-gradient(60rem 40rem at 50% 38%, var(--ophis-glow), transparent 70%),
+    linear-gradient(var(--ophis-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--ophis-grid) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    32px 32px,
+    32px 32px;
+}
+.ophis-stage::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, var(--ophis-scan) 2px 3px);
+}
+.ophis-glass {
+  background-color: var(--ophis-glass);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 64px -8px var(--ophis-glow);
+}
+.ophis-caret::after {
+  content: "▍";
+  margin-inline-start: 1px;
+  animation: ophis-blink 1s steps(1) infinite;
+}
+
+/* The mark: ring draws in, then the bird rises and ignites. */
+.ophis-ring {
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  animation: ophis-draw 0.9s ease-out forwards;
+}
+.ophis-rise {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  opacity: 0;
+  animation: ophis-rise 0.8s 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.ophis-ignite {
+  animation: ophis-ignite 1.4s 1.1s ease-out both;
+}
+.ophis-scanbar {
+  animation: ophis-scanbar 0.9s linear infinite;
+}
+@keyframes ophis-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes ophis-rise {
+  from {
+    opacity: 0;
+    transform: translateY(14%) scaleY(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ophis-ignite {
+  0% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  40% {
+    filter: drop-shadow(0 0 10px var(--primary));
+  }
+  100% {
+    filter: drop-shadow(0 0 3px var(--ophis-glow));
+  }
+}
+@keyframes ophis-blink {
+  50% {
+    opacity: 0;
+  }
+}
+@keyframes ophis-scanbar {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(250%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ophis-ring,
+  .ophis-rise,
+  .ophis-ignite,
+  .ophis-scanbar,
+  .ophis-caret::after {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+/* Analyst family typography overlay: weights capped at 500, mono metadata
+ * (anything inside <Ltr> carries [data-ltr]), soft shadow on popover surfaces. */
+[data-theme="analyst"] :is(.font-bold, .font-semibold) {
+  font-weight: 500;
+}
+
+[data-theme="analyst"] :is(h1, h2, h3, h4) {
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+
+/* Metadata, IDs, refs, dates and counts. <Ltr> already wraps exactly these,
+ * in 374 places, so no component needs a class change. */
+[data-theme="analyst"] [data-ltr] {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.01em;
+}
+
+/* Two soft shadows, elevation only, floating surfaces only — the
+ * "no shadows outside popovers/dropdowns" rule still holds.
+ * Neither primitive carries a `data-slot` in this codebase's shadcn version
+ * (src/components/ui/popover.tsx, dropdown-menu.tsx — verified by grep, out
+ * of scope to edit), so this hangs off `bg-popover` instead: shadcn's
+ * semantic class for an elevated surface, shared by popover, dropdown-menu,
+ * hover-card, select, context-menu, menubar and command. tooltip.tsx uses
+ * `bg-primary`, not `bg-popover`, so tooltips stay unshadowed. */
+[data-theme="analyst"] .bg-popover {
+  box-shadow: var(--shadow-elegant);
+}
+
+/* Link analysis board: print / Save as PDF shows only the .board-print view. */
+.board-print {
+  display: none;
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .board-print,
+  .board-print * {
+    visibility: visible;
+  }
+  .board-print {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+    display: block;
+    position: absolute;
+    inset: 0;
+    padding: 12mm;
+  }
+  .board-print table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9pt;
+  }
+  .board-print th,
+  .board-print td {
+    border: 1px solid currentColor;
+    padding: 2pt 4pt;
+    text-align: start;
+  }
+  @page {
+    size: A4 landscape;
+    margin: 8mm;
+  }
+}
+
+/* An unknown persona's portrait: a hatch, so an empty photo never reads as a broken image. */
+.profile-portrait-empty {
+  background-image: repeating-linear-gradient(
+    135deg,
+    var(--surface-subtle) 0 6px,
+    var(--background) 6px 12px
+  );
+}

@@ -57,14 +57,14 @@ export function CaseListSummary() {
 
   return (
     <div className="flex items-center gap-3">
-      <p aria-live="polite" className="text-sm text-content-muted">
+      <p aria-live="polite" className="text-sm text-muted-foreground">
         {summary}
       </p>
       <RadioMenu
         groups={sortGroups}
         trigger={
           <Button>
-            <span className="text-content-muted">{t('sort.trigger')}</span>
+            <span className="text-muted-foreground">{t('sort.trigger')}</span>
             {t(`sort.fields.${filters.sort}`)}
             <DirectionIcon aria-hidden />
             <span className="sr-only">{t(`sort.${filters.dir}`)}</span>

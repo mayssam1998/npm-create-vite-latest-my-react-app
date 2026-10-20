@@ -32,10 +32,10 @@ export function ActionMenu({ trigger, label, items, emptyText, align = 'end' }: 
           align={align}
           sideOffset={6}
           collisionPadding={16}
-          className="z-50 max-h-96 w-72 overflow-y-auto rounded-lg border border-border bg-surface-raised p-1 text-content shadow-lg"
+          className="z-50 max-h-96 w-72 overflow-y-auto rounded-lg border border-border bg-popover p-1 text-popover-foreground shadow-lg"
         >
-          <DropdownMenu.Label className="px-2 py-1 text-xs font-medium text-content-subtle">{label}</DropdownMenu.Label>
-          {items.length === 0 && <p className="px-2 py-3 text-sm text-content-muted">{emptyText}</p>}
+          <DropdownMenu.Label className="px-2 py-1 text-xs font-medium text-muted-foreground">{label}</DropdownMenu.Label>
+          {items.length === 0 && <p className="px-2 py-3 text-sm text-muted-foreground">{emptyText}</p>}
           {items.map((item) => (
             <ActionMenuRow key={item.id} item={item} />
           ))}
@@ -51,12 +51,12 @@ function ActionMenuRow({ item }: { item: ActionMenuItem }) {
   return (
     <DropdownMenu.Item
       onSelect={item.onSelect}
-      className="flex cursor-default items-start gap-2 rounded-md px-2 py-1.5 text-sm outline-none select-none data-highlighted:bg-surface-hover"
+      className="flex cursor-default items-start gap-2 rounded-md px-2 py-1.5 text-sm outline-none select-none data-highlighted:bg-accent"
     >
-      {Icon && <Icon aria-hidden className="mt-0.5 size-4 shrink-0 text-content-subtle" />}
+      {Icon && <Icon aria-hidden className="mt-0.5 size-4 shrink-0 text-muted-foreground" />}
       <span className="min-w-0">
         <span className="block truncate">{item.label}</span>
-        {item.description && <span className="block text-xs text-content-muted">{item.description}</span>}
+        {item.description && <span className="block text-xs text-muted-foreground">{item.description}</span>}
       </span>
     </DropdownMenu.Item>
   );

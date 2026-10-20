@@ -43,7 +43,7 @@ export function ClosedDraftsMenu() {
           <FileClock aria-hidden />
           <span>{t('closedDrafts.button')}</span>
           {hasClosedDrafts && (
-            <span className="rounded bg-primary-soft px-1 text-xs text-primary">{formatNumber(closedDrafts.length)}</span>
+            <span className="rounded bg-accent px-1 text-xs text-primary">{formatNumber(closedDrafts.length)}</span>
           )}
           <ChevronDown aria-hidden />
         </Button>

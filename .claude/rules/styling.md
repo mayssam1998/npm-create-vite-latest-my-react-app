@@ -6,17 +6,12 @@ CSS-in-JS costs render time you cannot afford next to WebGL.
 
 ## Design tokens as CSS variables
 
-The palette is specific — cream background, deep green, amber *Pending Signature*, red
-urgency markers. Define every one as a CSS variable in `@theme`, and **never write a raw
-colour in a component**.
-
-```css
-@theme {
-  --color-surface: oklch(98% 0.01 90);
-  --color-status-pending: oklch(70% 0.14 70);
-  --color-priority-urgent: oklch(58% 0.19 25);
-}
-```
+The palette is the **O.P.H.I.S design system** (adopted Oct 20, 2026), generated from the
+approved Lovable app and copied verbatim into `src/shared/design-system/` — never edit those
+files. `css/tokens.css` defines every variable for four themes, `css/tailwind-theme.css`
+maps them to utilities (`bg-primary`, `text-muted-foreground`, `bg-status-open-soft`,
+`bg-tag-sage text-tag-sage-fg` …). **Never write a raw colour in a component.** Usage rules:
+the "Design rules (O.P.H.I.S)" section of `CLAUDE.md`.
 
 This is also what makes dark mode a single stylesheet change instead of a hunt through
 400 files.
@@ -42,9 +37,11 @@ with template literals and ternaries.**
   conditionals in JSX.
 - Use logical properties for RTL: `ms-` / `me-` / `ps-` / `pe-` / `start-` / `end-`.
   Never `ml-` / `mr-` / `pl-` / `pr-` / `left-` / `right-`.
-- Dark mode via a **`.dark` class on `<html>`** (decided Oct 13, 2026), driven by one
-  `ThemeProvider`. `index.css` redefines the same tokens under `.dark`, so components never
-  need `dark:` variants.
+- Dark mode via a **`.dark` class on `<html>`** (decided Oct 13, 2026); the Analyst family via
+  **`data-theme="analyst"`** on `<html>` (Oct 20, 2026). Both are driven by the one
+  `ThemeProvider`, stored under `cm:theme` / `cm:theme-family`, and switched from the header
+  user menu. `tokens.css` redefines the same tokens per theme, so components never need
+  `dark:` variants.
 - `shared/ui` components may contain Tailwind classes. Feature components should mostly
   **compose** `shared/ui`, not restyle it.
 - Self-host the Arabic font — see `i18n-rtl.md`.

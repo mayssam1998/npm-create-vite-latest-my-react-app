@@ -14,8 +14,8 @@ export default function CaseManagementPage() {
   return (
     <div className="flex h-full min-h-0 flex-col gap-4 p-4 lg:p-6">
       <header>
-        <h1 className="text-xl font-semibold text-content">{t('page.title')}</h1>
-        <p className="text-sm text-content-muted">{t('page.subtitle')}</p>
+        <h1 className="text-xl font-semibold text-foreground">{t('page.title')}</h1>
+        <p className="text-sm text-muted-foreground">{t('page.subtitle')}</p>
       </header>
       <CaseToolbar />
       <div className="flex flex-wrap items-center justify-between gap-2">

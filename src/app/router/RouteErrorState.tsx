@@ -12,9 +12,9 @@ export function RouteErrorState() {
 
   return (
     <div role="alert" className="flex h-full flex-col items-center justify-center gap-2 p-6 text-center">
-      <CircleAlert aria-hidden className="size-8 text-danger" />
-      <p className="font-medium text-content">{t('routeError.title')}</p>
-      <p className="max-w-sm text-sm text-content-muted">{t('routeError.description')}</p>
+      <CircleAlert aria-hidden className="size-8 text-destructive" />
+      <p className="font-medium text-foreground">{t('routeError.title')}</p>
+      <p className="max-w-sm text-sm text-muted-foreground">{t('routeError.description')}</p>
       <Button className="mt-2" onClick={handleReload}>
         <RotateCw aria-hidden />
         {t('routeError.reload')}

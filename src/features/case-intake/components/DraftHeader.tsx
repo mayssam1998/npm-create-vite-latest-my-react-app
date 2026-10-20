@@ -26,11 +26,11 @@ export function DraftHeader({ draftId, isCreating, isSavingDraft, onSaveDraft, o
   return (
     <div className="flex shrink-0 flex-wrap items-start justify-between gap-3 border-b border-border px-4 py-3 lg:px-6">
       <div className="min-w-0">
-        <h2 className="truncate text-lg font-semibold text-content">{title || t('tabs.untitled')}</h2>
-        <p className="text-sm text-content-muted">
+        <h2 className="truncate text-lg font-semibold text-foreground">{title || t('tabs.untitled')}</h2>
+        <p className="text-sm text-muted-foreground">
           {reference ? (
             <>
-              {t('header.caseNumber')} <span className="font-mono font-medium text-content">{reference}</span>
+              {t('header.caseNumber')} <span className="font-mono font-medium text-foreground">{reference}</span>
             </>
           ) : (
             t('header.caseNumberPending')
@@ -70,8 +70,8 @@ function DraftSaveStatus({ draftId }: { draftId: string }) {
 
   if (isUnsaved) {
     return (
-      <p className="mt-1 flex items-center gap-1.5 text-xs text-content-muted">
-        <CircleDot aria-hidden className="size-3.5 text-accent-amber" />
+      <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
+        <CircleDot aria-hidden className="size-3.5 text-ev-warn" />
         {t('status.localOnly')}
       </p>
     );
@@ -79,15 +79,15 @@ function DraftSaveStatus({ draftId }: { draftId: string }) {
 
   if (savedAt) {
     return (
-      <p className="mt-1 flex items-center gap-1.5 text-xs text-content-muted">
-        <CircleCheck aria-hidden className="size-3.5 text-success" />
+      <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
+        <CircleCheck aria-hidden className="size-3.5 text-ev-ok" />
         {t('status.savedAsDraft', { time: formatDateTime(savedAt) })}
       </p>
     );
   }
 
   return (
-    <p className="mt-1 flex items-center gap-1.5 text-xs text-content-muted">
+    <p className="mt-1 flex items-center gap-1.5 text-xs text-muted-foreground">
       <HardDrive aria-hidden className="size-3.5" />
       {t('status.onThisDevice')}
     </p>

@@ -31,7 +31,7 @@ export function SegmentedControl<TValue extends string>({
       role="group"
       aria-label={label}
       className={cn(
-        'inline-flex h-8 items-stretch overflow-hidden rounded-md border border-border bg-surface-raised',
+        'inline-flex h-8 items-stretch overflow-hidden rounded-md border border-border bg-card',
         className,
       )}
     >
@@ -61,13 +61,13 @@ function SegmentButton<TValue extends string>({ item, isSelected, onSelect }: Se
       aria-pressed={isSelected}
       onClick={handleClick}
       className={cn(
-        'inline-flex items-center gap-1.5 border-e border-border px-3 text-sm text-content-muted last:border-e-0 hover:bg-surface-hover',
-        isSelected && 'bg-primary-soft text-primary hover:bg-primary-soft',
+        'inline-flex items-center gap-1.5 border-e border-border px-3 text-sm text-muted-foreground last:border-e-0 hover:bg-accent',
+        isSelected && 'bg-accent text-primary hover:bg-accent',
       )}
     >
       {Icon && <Icon aria-hidden className="size-4" />}
       {item.label}
-      {item.count !== undefined && <span className="text-xs text-content-subtle">{item.count}</span>}
+      {item.count !== undefined && <span className="text-xs text-muted-foreground">{item.count}</span>}
     </button>
   );
 }

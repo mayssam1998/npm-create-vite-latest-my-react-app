@@ -7,11 +7,11 @@ import type { CasePriority, CaseSource, CaseStatus } from '../model/case';
 // component, but not the return value of a function.
 
 const STATUS_TONE: Record<CaseStatus, BadgeTone> = {
-  new: 'statusNew',
+  new: 'statusAck',
   open: 'statusOpen',
   inProgress: 'statusProgress',
-  pendingSignatureIn: 'statusPending',
-  pendingSignatureOut: 'statusPending',
+  pendingSignatureIn: 'statusReview',
+  pendingSignatureOut: 'statusReview',
   closed: 'statusClosed',
 };
 
@@ -36,7 +36,7 @@ export const SOURCE_ICON: Record<CaseSource, LucideIcon> = {
 };
 
 /** Free-text tags get a stable colour derived from their text. */
-const TAG_TONES: readonly BadgeTone[] = ['amber', 'red', 'blue', 'violet', 'teal'];
+const TAG_TONES: readonly BadgeTone[] = ['tagNeutral', 'tagSand', 'tagSage', 'tagSlate', 'tagClay'];
 
 export function getStatusTone(status: CaseStatus) {
   return STATUS_TONE[status];

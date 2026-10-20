@@ -28,16 +28,16 @@ export function Breadcrumbs() {
         {crumbs.map((crumb, index) => (
           <li key={crumb.to} className="flex min-w-0 items-center gap-1.5">
             {index > 0 && (
-              <span aria-hidden className="text-content-subtle">
+              <span aria-hidden className="text-muted-foreground">
                 /
               </span>
             )}
             {index === lastIndex ? (
-              <span aria-current="page" className="truncate font-medium text-content">
+              <span aria-current="page" className="truncate font-medium text-foreground">
                 {t(crumb.titleKey)}
               </span>
             ) : (
-              <Link to={crumb.to} className="truncate rounded text-content-muted hover:text-content hover:underline">
+              <Link to={crumb.to} className="truncate rounded text-muted-foreground hover:text-foreground hover:underline">
                 {t(crumb.titleKey)}
               </Link>
             )}

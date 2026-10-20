@@ -57,14 +57,14 @@ export function Pagination({
   return (
     <nav
       aria-label={t('pagination.label')}
-      className={cn('flex flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm text-content-muted', className)}
+      className={cn('flex flex-wrap items-center justify-between gap-3 px-4 py-2 text-sm text-muted-foreground', className)}
     >
       <label className="flex items-center gap-2">
         {t('pagination.rowsPerPage')}
         <select
           value={pageSize}
           onChange={handlePageSizeChange}
-          className="h-8 rounded-md border border-border bg-surface-raised px-2 text-content"
+          className="h-8 rounded-md border border-border bg-card px-2 text-foreground"
         >
           {pageSizeOptions.map((option) => (
             <option key={option} value={option}>

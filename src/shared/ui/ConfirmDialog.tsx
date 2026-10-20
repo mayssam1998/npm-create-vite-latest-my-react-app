@@ -60,11 +60,11 @@ function ConfirmDialogContent({ options, onConfirm }: ConfirmDialogContentProps)
 
   return (
     <AlertDialog.Portal>
-      <AlertDialog.Overlay className="fixed inset-0 z-50 bg-overlay" />
-      <AlertDialog.Content className="fixed inset-4 z-50 m-auto h-fit max-w-md rounded-lg border border-border bg-surface-raised p-5 text-content shadow-xl">
+      <AlertDialog.Overlay className="fixed inset-0 z-50 bg-background/80" />
+      <AlertDialog.Content className="fixed inset-4 z-50 m-auto h-fit max-w-md rounded-lg border border-border bg-popover p-5 text-popover-foreground shadow-xl">
         <AlertDialog.Title className="text-base font-semibold">{options.title}</AlertDialog.Title>
         {options.description && (
-          <AlertDialog.Description className="mt-2 text-sm text-content-muted">
+          <AlertDialog.Description className="mt-2 text-sm text-muted-foreground">
             {options.description}
           </AlertDialog.Description>
         )}

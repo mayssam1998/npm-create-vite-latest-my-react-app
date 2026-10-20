@@ -25,7 +25,7 @@ interface WorkspaceTabsProps {
 export function WorkspaceTabs({ label, value, onValueChange, tabs, actions, children }: WorkspaceTabsProps) {
   return (
     <Tabs.Root value={value} onValueChange={onValueChange} className="flex min-h-0 flex-1 flex-col">
-      <div className="flex shrink-0 items-end gap-1 border-b border-border bg-surface-muted px-2 pt-1">
+      <div className="flex shrink-0 items-end gap-1 border-b border-border bg-muted px-2 pt-1">
         <Tabs.List aria-label={label} className="flex min-w-0 items-end overflow-x-auto overflow-y-hidden">
           {tabs}
         </Tabs.List>
@@ -77,18 +77,18 @@ export function WorkspaceTab({
   }
 
   return (
-    <div className="-mb-px flex shrink-0 items-center rounded-t-md border border-transparent has-[[data-state=active]]:border-border has-[[data-state=active]]:border-b-surface has-[[data-state=active]]:bg-surface">
+    <div className="-mb-px flex shrink-0 items-center rounded-t-md border border-transparent has-[[data-state=active]]:border-border has-[[data-state=active]]:border-b-background has-[[data-state=active]]:bg-background">
       <Tabs.Trigger
         value={value}
         title={label}
         onAuxClick={handleAuxClick}
         onKeyDown={handleKeyDown}
-        className="flex h-9 max-w-52 items-center gap-1.5 rounded-t-md ps-3 pe-1 text-sm text-content-muted hover:text-content data-[state=active]:font-medium data-[state=active]:text-content"
+        className="flex h-9 max-w-52 items-center gap-1.5 rounded-t-md ps-3 pe-1 text-sm text-muted-foreground hover:text-foreground data-[state=active]:font-medium data-[state=active]:text-foreground"
       >
         {Icon && <Icon aria-hidden className="size-4 shrink-0" />}
         <span className="truncate">{label}</span>
         {hasUnsavedChanges && (
-          <span className="size-1.5 shrink-0 rounded-full bg-accent-amber">
+          <span className="size-1.5 shrink-0 rounded-full bg-ev-warn">
             <span className="sr-only">{unsavedChangesLabel}</span>
           </span>
         )}
@@ -98,7 +98,7 @@ export function WorkspaceTab({
         aria-label={closeLabel}
         title={closeLabel}
         onClick={handleClose}
-        className="me-1 rounded p-1 text-content-subtle hover:bg-surface-hover hover:text-content"
+        className="me-1 rounded p-1 text-muted-foreground hover:bg-accent hover:text-foreground"
       >
         <X aria-hidden className="size-3.5" />
       </button>

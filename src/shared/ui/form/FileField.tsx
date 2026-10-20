@@ -109,13 +109,13 @@ export function FileField({ name, label, hint, accept, maxSizeBytes, className }
     return (
       <div className={cn('flex min-h-0 flex-col gap-3', className)} onDragOver={handleDragOver} onDrop={handleDrop}>
         {hiddenInput}
-        <div className="flex items-center gap-3 rounded-md border border-border bg-surface-raised p-2">
+        <div className="flex items-center gap-3 rounded-md border border-border bg-card p-2">
           <FileText aria-hidden className="size-5 shrink-0 text-primary" />
           <div className="min-w-0 flex-1">
-            <p className="truncate text-sm font-medium text-content" title={file.name}>
+            <p className="truncate text-sm font-medium text-foreground" title={file.name}>
               {file.name}
             </p>
-            <p className="text-xs text-content-muted">{formatFileSize(file.size)}</p>
+            <p className="text-xs text-muted-foreground">{formatFileSize(file.size)}</p>
           </div>
           <Button ref={focusRef} variant="ghost" size="icon" onClick={handleBrowse} aria-label={t('form.replaceFile')} title={t('form.replaceFile')}>
             <RefreshCw aria-hidden />
@@ -136,20 +136,20 @@ export function FileField({ name, label, hint, accept, maxSizeBytes, className }
       onDrop={handleDrop}
       data-drag-over={isDragOver || undefined}
       className={cn(
-        'flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-border-strong p-6 text-center transition-colors data-drag-over:border-primary data-drag-over:bg-primary-soft',
-        error && 'border-danger',
+        'flex flex-col items-center justify-center gap-2 rounded-lg border border-dashed border-input p-6 text-center transition-colors data-drag-over:border-primary data-drag-over:bg-accent',
+        error && 'border-destructive',
         className,
       )}
     >
       {hiddenInput}
-      <CloudUpload aria-hidden className="size-7 text-content-subtle" />
-      <p className="text-sm font-medium text-content">{label}</p>
-      <p className="max-w-xs text-xs text-content-muted">{hint}</p>
+      <CloudUpload aria-hidden className="size-7 text-muted-foreground" />
+      <p className="text-sm font-medium text-foreground">{label}</p>
+      <p className="max-w-xs text-xs text-muted-foreground">{hint}</p>
       <Button ref={focusRef} className="mt-2" onClick={handleBrowse} aria-invalid={error ? true : undefined}>
         {t('form.chooseFile')}
       </Button>
       {errorText && (
-        <p role="alert" className="text-xs text-danger">
+        <p role="alert" className="text-xs text-destructive">
           {errorText}
         </p>
       )}

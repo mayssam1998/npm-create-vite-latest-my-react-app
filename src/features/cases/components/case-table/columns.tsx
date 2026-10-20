@@ -31,7 +31,7 @@ export const caseColumns: DataTableColumnDef<Case>[] = [
 // One small named component per cell — never an inline arrow returning JSX.
 
 function ReferenceCell({ row }: DataTableCellProps<Case>) {
-  return <span className="font-mono text-xs text-content-muted">{row.original.reference}</span>;
+  return <span className="font-mono text-xs text-muted-foreground">{row.original.reference}</span>;
 }
 
 function TitleCell({ row }: DataTableCellProps<Case>) {
@@ -40,10 +40,10 @@ function TitleCell({ row }: DataTableCellProps<Case>) {
 
   return (
     <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-      <span className="font-medium text-content">{title}</span>
+      <span className="font-medium text-foreground">{title}</span>
       {source && <SourceBadge source={source} />}
       {isProcessed && (
-        <Badge tone="teal" appearance="outline">
+        <Badge tone="tagSage" appearance="outline">
           {t('badge.processed')}
         </Badge>
       )}
@@ -56,7 +56,7 @@ function SourceBadge({ source }: { source: CaseSource }) {
   const Icon = SOURCE_ICON[source];
 
   return (
-    <Badge tone="amber" appearance="plain">
+    <Badge tone="tagSand" appearance="plain">
       <Icon aria-hidden />
       {t(`source.${source}`)}
     </Badge>
@@ -84,7 +84,7 @@ function OwnerCell({ row }: DataTableCellProps<Case>) {
   const { owner } = row.original;
 
   return (
-    <span className={cn('block truncate', !owner && 'text-content-subtle')}>
+    <span className={cn('block truncate', !owner && 'text-muted-foreground')}>
       {owner?.name ?? t('table.unassigned')}
     </span>
   );
@@ -96,7 +96,7 @@ function DueDateCell({ row }: DataTableCellProps<Case>) {
   const { dueDate, isOverdue } = row.original;
 
   return (
-    <span className={cn('inline-flex items-center gap-1 whitespace-nowrap', isOverdue && 'font-medium text-danger')}>
+    <span className={cn('inline-flex items-center gap-1 whitespace-nowrap', isOverdue && 'font-medium text-destructive')}>
       {isOverdue && <CircleAlert aria-hidden className="size-3.5" />}
       {formatDate(dueDate)}
       {isOverdue && <span className="sr-only">{t('table.overdue')}</span>}
@@ -108,7 +108,7 @@ function TagsCell({ row }: DataTableCellProps<Case>) {
   const { t } = useTranslation('cases');
   const { tags } = row.original;
 
-  if (tags.length === 0) return <span className="text-content-subtle">{t('table.none')}</span>;
+  if (tags.length === 0) return <span className="text-muted-foreground">{t('table.none')}</span>;
 
   return (
     <div className="flex flex-wrap gap-1">
@@ -127,7 +127,7 @@ function TasksCell({ row }: DataTableCellProps<Case>) {
   const { done, total } = row.original.tasks;
 
   return (
-    <span className="text-content-muted tabular-nums">
+    <span className="text-muted-foreground tabular-nums">
       {t('table.tasksProgress', { done: formatNumber(done), total: formatNumber(total) })}
     </span>
   );
@@ -135,5 +135,5 @@ function TasksCell({ row }: DataTableCellProps<Case>) {
 
 function UpdatedCell({ row }: DataTableCellProps<Case>) {
   const { formatDate } = useFormatters();
-  return <span className="whitespace-nowrap text-content-muted">{formatDate(row.original.updatedAt)}</span>;
+  return <span className="whitespace-nowrap text-muted-foreground">{formatDate(row.original.updatedAt)}</span>;
 }

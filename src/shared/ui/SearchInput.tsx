@@ -20,7 +20,7 @@ export function SearchInput({ value, onValueChange, label, placeholder, classNam
     <div className={cn('relative', className)}>
       <Search
         aria-hidden
-        className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-content-subtle"
+        className="pointer-events-none absolute start-2.5 top-1/2 size-4 -translate-y-1/2 text-muted-foreground"
       />
       <input
         type="search"
@@ -28,7 +28,7 @@ export function SearchInput({ value, onValueChange, label, placeholder, classNam
         placeholder={placeholder}
         value={value}
         onChange={handleChange}
-        className="h-8 w-full rounded-md border border-border bg-surface-raised ps-8 pe-2 text-sm text-content placeholder:text-content-subtle"
+        className="h-8 w-full rounded-md border border-border bg-card ps-8 pe-2 text-sm text-foreground placeholder:text-muted-foreground"
       />
     </div>
   );

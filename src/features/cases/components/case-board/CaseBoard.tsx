@@ -49,7 +49,7 @@ export function CaseBoard() {
         ))}
       </div>
       <Pagination
-        className="rounded-lg border border-border bg-surface-raised"
+        className="rounded-lg border border-border bg-card"
         page={filters.page}
         pageSize={filters.pageSize}
         total={data.total}
@@ -65,10 +65,10 @@ function BoardColumn({ group }: { group: CaseStatusGroup }) {
   const { formatNumber } = useFormatters();
 
   return (
-    <div className="flex w-72 shrink-0 flex-col rounded-lg border border-border bg-surface-muted">
+    <div className="flex w-72 shrink-0 flex-col rounded-lg border border-border bg-muted">
       <div className="flex items-center justify-between px-3 py-2">
         <CaseStatusBadge status={group.status} />
-        <span className="text-xs text-content-subtle">{formatNumber(group.cases.length)}</span>
+        <span className="text-xs text-muted-foreground">{formatNumber(group.cases.length)}</span>
       </div>
       <ul className="flex min-h-0 flex-1 flex-col gap-2 overflow-y-auto px-2 pb-2">
         {group.cases.map((item) => (
@@ -84,15 +84,15 @@ function BoardCard({ item }: { item: Case }) {
   const { formatDate } = useFormatters();
 
   return (
-    <li className="flex flex-col gap-2 rounded-md border border-border bg-surface-raised p-3 text-sm">
+    <li className="flex flex-col gap-2 rounded-md border border-border bg-card p-3 text-sm">
       <div className="flex items-center justify-between gap-2">
-        <span className="font-mono text-xs text-content-muted">{item.reference}</span>
+        <span className="font-mono text-xs text-muted-foreground">{item.reference}</span>
         <CasePriorityBadge priority={item.priority} />
       </div>
-      <p className="font-medium text-content">{item.title}</p>
-      <div className="flex items-center justify-between gap-2 text-xs text-content-muted">
+      <p className="font-medium text-foreground">{item.title}</p>
+      <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
         <span className="truncate">{item.owner?.name ?? t('table.unassigned')}</span>
-        <span className={cn(item.isOverdue && 'font-medium text-danger')}>{formatDate(item.dueDate)}</span>
+        <span className={cn(item.isOverdue && 'font-medium text-destructive')}>{formatDate(item.dueDate)}</span>
       </div>
     </li>
   );

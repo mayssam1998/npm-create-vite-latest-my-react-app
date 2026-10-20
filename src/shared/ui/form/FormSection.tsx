@@ -13,9 +13,9 @@ export function FormSection({ title, description, children, className }: FormSec
   return (
     <fieldset className={cn('flex flex-col gap-4 border-b border-border pb-6 last:border-b-0', className)}>
       <legend className="contents">
-        <span className="block text-xs font-semibold tracking-wider text-content-subtle uppercase">{title}</span>
+        <span className="block text-xs font-semibold tracking-wider text-muted-foreground uppercase">{title}</span>
       </legend>
-      {description && <p className="-mt-2 text-sm text-content-muted">{description}</p>}
+      {description && <p className="-mt-2 text-sm text-muted-foreground">{description}</p>}
       {children}
     </fieldset>
   );

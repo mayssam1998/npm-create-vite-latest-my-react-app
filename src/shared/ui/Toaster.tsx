@@ -9,9 +9,9 @@ const TOAST_DURATION_MS = 5_000;
 const toastIconVariants = cva('mt-0.5 size-4 shrink-0', {
   variants: {
     tone: {
-      success: 'text-success',
-      error: 'text-danger',
-      info: 'text-accent-blue',
+      success: 'text-ev-ok',
+      error: 'text-destructive',
+      info: 'text-ev-info',
     },
   },
 });
@@ -56,18 +56,18 @@ function ToastItem({ toast }: ToastItemProps) {
       // Errors interrupt the screen reader; success and info wait their turn.
       type={toast.tone === 'error' ? 'foreground' : 'background'}
       onOpenChange={handleOpenChange}
-      className="flex items-start gap-3 rounded-lg border border-border bg-surface-raised p-3 text-content shadow-lg"
+      className="flex items-start gap-3 rounded-lg border border-border bg-popover p-3 text-popover-foreground shadow-lg"
     >
       <Icon aria-hidden className={toastIconVariants({ tone: toast.tone })} />
       <div className="min-w-0 flex-1">
         <Toast.Title className="text-sm font-medium">{toast.title}</Toast.Title>
         {toast.description && (
-          <Toast.Description className="mt-0.5 text-sm text-content-muted">{toast.description}</Toast.Description>
+          <Toast.Description className="mt-0.5 text-sm text-muted-foreground">{toast.description}</Toast.Description>
         )}
       </div>
       <Toast.Close
         aria-label={t('toast.dismiss')}
-        className="rounded p-0.5 text-content-subtle hover:bg-surface-hover hover:text-content"
+        className="rounded p-0.5 text-muted-foreground hover:bg-accent hover:text-foreground"
       >
         <X aria-hidden className="size-4" />
       </Toast.Close>

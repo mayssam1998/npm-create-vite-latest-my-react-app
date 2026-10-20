@@ -89,7 +89,7 @@ export function TagsField({ name, label, suggestions = [], placeholder, isRequir
             list={suggestionsId}
             placeholder={tags.length === 0 ? placeholder : undefined}
             autoComplete="off"
-            className="h-7 min-w-24 flex-1 bg-transparent text-sm outline-none placeholder:text-content-subtle"
+            className="h-7 min-w-24 flex-1 bg-transparent text-sm outline-none placeholder:text-muted-foreground"
           />
           <datalist id={suggestionsId}>
             {availableSuggestions.map((suggestion) => (
@@ -114,9 +114,9 @@ function TagChip({ tag, removeLabel, onRemove }: TagChipProps) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1 rounded-md bg-primary-soft py-0.5 ps-2 pe-1 text-xs font-medium text-primary">
+    <span className="inline-flex items-center gap-1 rounded-md bg-accent py-0.5 ps-2 pe-1 text-xs font-medium text-primary">
       {tag}
-      <button type="button" aria-label={removeLabel} onClick={handleRemove} className="rounded p-0.5 hover:bg-surface-hover">
+      <button type="button" aria-label={removeLabel} onClick={handleRemove} className="rounded p-0.5 hover:bg-accent">
         <X aria-hidden className="size-3" />
       </button>
     </span>

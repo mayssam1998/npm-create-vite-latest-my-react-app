@@ -65,7 +65,7 @@ export function SelectField({
             <span className="truncate">
               <Select.Value placeholder={placeholder} />
             </span>
-            <Select.Icon className="text-content-subtle">
+            <Select.Icon className="text-muted-foreground">
               <ChevronDown aria-hidden />
             </Select.Icon>
           </Select.Trigger>
@@ -74,7 +74,7 @@ export function SelectField({
               position="popper"
               sideOffset={4}
               collisionPadding={16}
-              className="z-50 max-h-(--radix-select-content-available-height) w-(--radix-select-trigger-width) overflow-hidden rounded-lg border border-border bg-surface-raised text-content shadow-lg"
+              className="z-50 max-h-(--radix-select-content-available-height) w-(--radix-select-trigger-width) overflow-hidden rounded-lg border border-border bg-popover text-popover-foreground shadow-lg"
             >
               <Select.Viewport className="p-1">
                 {emptyOptionLabel && <SelectOption value={EMPTY_OPTION_VALUE} label={emptyOptionLabel} />}
@@ -94,7 +94,7 @@ function SelectOption({ value, label }: SelectFieldOption) {
   return (
     <Select.Item
       value={value}
-      className="relative flex cursor-default items-center rounded-md py-1.5 ps-7 pe-2 text-sm outline-none select-none data-highlighted:bg-surface-hover"
+      className="relative flex cursor-default items-center rounded-md py-1.5 ps-7 pe-2 text-sm outline-none select-none data-highlighted:bg-accent"
     >
       <Select.ItemIndicator className="absolute start-2 inline-flex">
         <Check aria-hidden className="size-4" />

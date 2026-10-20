@@ -1,110 +1,18 @@
 @import 'tailwindcss';
 
-/* Dark mode is a `.dark` class on <html>, set by the ThemeProvider. */
-@custom-variant dark (&:where(.dark, .dark *));
-
 /*
- * Design tokens. Components use these utilities only — never a raw colour.
- * The real palette still has to be extracted from the design files
- * (see .claude/rules/open-questions.md); these approximate the screenshots.
+ * The O.P.H.I.S design system (shared/design-system/, generated — never edit those files).
+ * Same order as the export's index.css, minus tw-animate-css, which nothing here uses.
+ * Light is the default; dark is `.dark` on <html>; the Analyst family is
+ * `data-theme="analyst"` on <html>. All set by the ThemeProvider.
  */
-@theme {
-  --font-sans: 'Inter', 'IBM Plex Sans Arabic', 'Noto Sans Arabic', ui-sans-serif, system-ui, sans-serif;
-  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Mono', monospace;
+@import './shared/design-system/css/fonts.css';
+@import './shared/design-system/css/tokens.css';
+@import './shared/design-system/css/tailwind-theme.css';
+@import './shared/design-system/css/extras.css';
 
-  --color-surface: oklch(98.5% 0.008 90);
-  --color-surface-raised: oklch(100% 0 0);
-  --color-surface-muted: oklch(95.5% 0.012 90);
-  --color-surface-hover: oklch(93.5% 0.015 90);
-
-  --color-border: oklch(91% 0.012 90);
-  --color-border-strong: oklch(84% 0.015 90);
-
-  --color-content: oklch(24% 0.015 150);
-  --color-content-muted: oklch(46% 0.015 150);
-  --color-content-subtle: oklch(60% 0.012 150);
-
-  --color-primary: oklch(42% 0.09 155);
-  --color-primary-hover: oklch(36% 0.09 155);
-  --color-primary-foreground: oklch(98% 0.01 155);
-  --color-primary-soft: oklch(93% 0.035 155);
-
-  --color-focus: oklch(55% 0.13 155);
-
-  --color-status-new: oklch(52% 0.13 250);
-  --color-status-open: oklch(55% 0.14 230);
-  --color-status-progress: oklch(52% 0.15 290);
-  --color-status-pending: oklch(66% 0.15 65);
-  --color-status-closed: oklch(55% 0.01 150);
-
-  --color-priority-urgent: oklch(56% 0.2 25);
-  --color-priority-high: oklch(62% 0.17 45);
-  --color-priority-normal: oklch(46% 0.015 150);
-  --color-priority-low: oklch(60% 0.012 150);
-
-  --color-danger: oklch(56% 0.2 25);
-  --color-danger-hover: oklch(50% 0.2 25);
-  --color-danger-foreground: oklch(98% 0.01 25);
-  --color-danger-soft: oklch(95% 0.03 25);
-
-  --color-success: oklch(48% 0.11 155);
-
-  /* Translucent layer behind modal dialogs. */
-  --color-overlay: oklch(20% 0.01 150 / 0.45);
-
-  --color-accent-amber: oklch(66% 0.15 65);
-  --color-accent-red: oklch(56% 0.2 25);
-  --color-accent-blue: oklch(55% 0.14 240);
-  --color-accent-violet: oklch(52% 0.15 290);
-  --color-accent-teal: oklch(55% 0.1 185);
-}
-
-.dark {
-  --color-surface: oklch(18% 0.01 150);
-  --color-surface-raised: oklch(22% 0.012 150);
-  --color-surface-muted: oklch(25% 0.012 150);
-  --color-surface-hover: oklch(29% 0.014 150);
-
-  --color-border: oklch(30% 0.012 150);
-  --color-border-strong: oklch(38% 0.014 150);
-
-  --color-content: oklch(94% 0.008 90);
-  --color-content-muted: oklch(76% 0.01 90);
-  --color-content-subtle: oklch(62% 0.01 90);
-
-  --color-primary: oklch(70% 0.12 155);
-  --color-primary-hover: oklch(76% 0.12 155);
-  --color-primary-foreground: oklch(18% 0.02 155);
-  --color-primary-soft: oklch(30% 0.05 155);
-
-  --color-focus: oklch(75% 0.13 155);
-
-  --color-status-new: oklch(72% 0.12 250);
-  --color-status-open: oklch(74% 0.12 230);
-  --color-status-progress: oklch(72% 0.13 290);
-  --color-status-pending: oklch(78% 0.14 70);
-  --color-status-closed: oklch(66% 0.01 150);
-
-  --color-priority-urgent: oklch(70% 0.18 25);
-  --color-priority-high: oklch(76% 0.15 50);
-  --color-priority-normal: oklch(76% 0.01 90);
-  --color-priority-low: oklch(62% 0.01 90);
-
-  --color-danger: oklch(70% 0.18 25);
-  --color-danger-hover: oklch(76% 0.16 25);
-  --color-danger-foreground: oklch(18% 0.02 25);
-  --color-danger-soft: oklch(28% 0.06 25);
-
-  --color-success: oklch(74% 0.13 155);
-
-  --color-overlay: oklch(8% 0.01 150 / 0.6);
-
-  --color-accent-amber: oklch(78% 0.14 70);
-  --color-accent-red: oklch(70% 0.18 25);
-  --color-accent-blue: oklch(74% 0.12 240);
-  --color-accent-violet: oklch(72% 0.13 290);
-  --color-accent-teal: oklch(74% 0.1 185);
-}
+/* The read-only export folder is reference material, not app source. */
+@source not '../design-system-export';
 
 @layer base {
   html {
@@ -115,12 +23,13 @@
     color-scheme: dark;
   }
 
+  /* No font-family here: <html> carries it (Tailwind's default, or the Analyst block). */
   body {
-    @apply bg-surface font-sans text-content antialiased;
+    @apply antialiased;
   }
 
   /* One focus style for every interactive element — keyboard users always see it. */
   :focus-visible {
-    @apply outline-2 outline-offset-2 outline-focus;
+    @apply outline-2 outline-offset-2 outline-ring;
   }
 }

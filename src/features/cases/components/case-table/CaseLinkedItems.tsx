@@ -33,7 +33,7 @@ export function CaseLinkedItems({ caseId }: CaseLinkedItemsProps) {
   }
 
   if (data.items.length === 0) {
-    return <p className="py-3 ps-12 pe-4 text-sm text-content-muted">{t('linked.empty')}</p>;
+    return <p className="py-3 ps-12 pe-4 text-sm text-muted-foreground">{t('linked.empty')}</p>;
   }
 
   return (
@@ -56,9 +56,9 @@ function LinkedItemRow({ item }: { item: LinkedItem }) {
         <CaseStatusBadge status={item.status} />
       </span>
       <span className="col-span-2 truncate">{item.section.name}</span>
-      <span className="col-span-1 truncate text-content-muted">{item.owner?.name ?? t('table.unassigned')}</span>
-      <span className="col-span-1 text-content-muted">{formatDate(item.dueDate)}</span>
-      <span className="col-span-1 text-content-muted">{formatDate(item.updatedAt)}</span>
+      <span className="col-span-1 truncate text-muted-foreground">{item.owner?.name ?? t('table.unassigned')}</span>
+      <span className="col-span-1 text-muted-foreground">{formatDate(item.dueDate)}</span>
+      <span className="col-span-1 text-muted-foreground">{formatDate(item.updatedAt)}</span>
     </li>
   );
 }

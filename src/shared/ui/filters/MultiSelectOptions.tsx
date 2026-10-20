@@ -67,12 +67,12 @@ export function MultiSelectOptions<TValue extends string>({
         <legend className="sr-only">{label}</legend>
         {isLoading && <OptionsSkeleton />}
         {!isLoading && visibleOptions.length === 0 && (
-          <p className="px-2 py-3 text-sm text-content-muted">{t('filters.noMatches')}</p>
+          <p className="px-2 py-3 text-sm text-muted-foreground">{t('filters.noMatches')}</p>
         )}
         {visibleOptions.map((option) => (
           <label
             key={option.value}
-            className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-surface-hover"
+            className="flex cursor-pointer items-center gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-accent"
           >
             <input
               type="checkbox"

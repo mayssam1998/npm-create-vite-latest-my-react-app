@@ -143,9 +143,9 @@ function ReferenceDataAlert({ onRetry }: { onRetry: () => void }) {
   const { t } = useTranslation('caseIntake');
 
   return (
-    <div role="alert" className="flex items-center gap-3 rounded-md border border-danger bg-danger-soft p-3 text-sm">
-      <CircleAlert aria-hidden className="size-4 shrink-0 text-danger" />
-      <p className="flex-1 text-content">{t('form.referenceDataError')}</p>
+    <div role="alert" className="flex items-center gap-3 rounded-md border border-destructive bg-destructive/10 p-3 text-sm">
+      <CircleAlert aria-hidden className="size-4 shrink-0 text-destructive" />
+      <p className="flex-1 text-foreground">{t('form.referenceDataError')}</p>
       <Button size="sm" onClick={onRetry}>
         <RotateCw aria-hidden />
         {t('form.retry')}

@@ -40,10 +40,10 @@ export function FormField({ name, label, isRequired = false, description, classN
 
   return (
     <div className={cn('flex flex-col gap-1.5', className)}>
-      <label htmlFor={id} className="text-sm font-medium text-content">
+      <label htmlFor={id} className="text-sm font-medium text-foreground">
         {label}
         {isRequired && (
-          <span className="ms-0.5 text-danger" aria-hidden>
+          <span className="ms-0.5 text-destructive" aria-hidden>
             *
           </span>
         )}
@@ -55,12 +55,12 @@ export function FormField({ name, label, isRequired = false, description, classN
         'aria-required': isRequired ? true : undefined,
       })}
       {description && (
-        <p id={descriptionId} className="text-xs text-content-muted">
+        <p id={descriptionId} className="text-xs text-muted-foreground">
           {description}
         </p>
       )}
       {error?.message && (
-        <p id={errorId} className="text-xs text-danger">
+        <p id={errorId} className="text-xs text-destructive">
           {t(error.message, { defaultValue: error.message })}
         </p>
       )}

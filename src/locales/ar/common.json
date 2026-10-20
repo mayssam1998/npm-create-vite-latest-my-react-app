@@ -40,15 +40,18 @@
     "showSidebar": "إظهار الشريط الجانبي",
     "hideSidebar": "إخفاء الشريط الجانبي",
     "search": "ابحث في القضايا والكيانات والملفات…",
-    "searchShortcut": "⌘K"
+    "searchShortcut": "⌘K",
+    "userMenu": "قائمة الحساب"
   },
   "language": {
-    "switchTo": "English",
-    "switchLabel": "التبديل إلى الإنجليزية"
+    "switchTo": "English"
   },
   "theme": {
-    "toDark": "التبديل إلى الوضع الداكن",
-    "toLight": "التبديل إلى الوضع الفاتح"
+    "family": "نمط السمة",
+    "familyDefault": "افتراضي",
+    "familyAnalyst": "المحلل",
+    "dark": "السمة الداكنة",
+    "light": "السمة الفاتحة"
   },
   "comingSoon": {
     "title": "هذه الوحدة غير متوفرة بعد",

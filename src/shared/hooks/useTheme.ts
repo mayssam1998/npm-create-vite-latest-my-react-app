@@ -2,9 +2,15 @@ import { createContext, useContext } from 'react';
 
 export type Theme = 'light' | 'dark';
 
+export const THEME_FAMILIES = ['default', 'analyst'] as const;
+export type ThemeFamily = (typeof THEME_FAMILIES)[number];
+
 export interface ThemeContextValue {
   theme: Theme;
   toggleTheme: () => void;
+  /** The design-system family; combines freely with light/dark. */
+  family: ThemeFamily;
+  setFamily: (family: ThemeFamily) => void;
 }
 
 /** Provided once by app/providers/ThemeProvider. Rarely changes, read by many — hence Context. */
