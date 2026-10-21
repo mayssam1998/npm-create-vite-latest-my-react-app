@@ -34,6 +34,35 @@ for values that change rarely — theme, locale, user. If you find yourself putt
 that changes on every keystroke into Context, that value belongs in Zustand or in local
 state.
 
+## One client-state library: Zustand (decided Oct 21, 2026)
+
+Chosen after reviewing every state holder in the source app: the
+investigation board, analyst workspace, map analysis, assistant dock, intake tabs and drafts.
+Server data is the bulk and belongs to TanStack Query; what is left is browser-only,
+fast-changing and often needs to survive a reload — which is what Zustand + IndexedDB do.
+
+- **Zustand is the only library for global client state, in every feature.** Do not
+  install or import Redux / Redux Toolkit / RTK Query, `react-redux`, Jotai, Recoil, MobX,
+  Valtio or XState. `npm run lint` fails on these imports (`OTHER_STATE_LIBRARIES` in
+  `eslint.config.js`).
+- **A real reason for another library means asking the user first.** Explain what Zustand
+  cannot do and why, then wait for a decision. Never install it, loosen the lint rule, or
+  work around it on your own judgement.
+- **Every feature uses the same shape**: `features/<x>/model/<x>Store.ts`, exporting
+  `use<X>Store`. Don't invent a different pattern per feature.
+- **Zustand is not a server cache.** Store ids and UI state, never a fetched entity —
+  that stays in the query cache.
+- **Persist the same way everywhere**: `persist` + `createIndexedDbStorage()`, with a
+  `version` and `migrate`. No new `localStorage` / `sessionStorage` code for app state
+  (theme and language keys are the exception: tiny and read before first paint).
+- **Canvas libraries read the store imperatively** (`useXStore.getState()` /
+  `.subscribe()` inside the wrapper's effect) so a selection or hover never re-renders React.
+- **Never store per-frame values** (map viewport, graph camera while dragging). Write them
+  to the store or URL when the gesture ends.
+- **Cap undo/redo history** at a fixed number of frames.
+- `useReducer` stays valid for one page's own state machine; Context stays valid for
+  theme, locale and user. Neither is a reason to add a library.
+
 ## Zustand conventions
 
 - One store per concern, living in the owning feature `model/` directory.

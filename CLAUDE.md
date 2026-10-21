@@ -16,6 +16,12 @@ Vitest + Testing Library + Playwright.
 No Redux. No CSS Modules, styled-components or Emotion. No new library without a note
 saying why.
 
+**Client state is Zustand only, in every feature.** Never install Redux/RTK, Jotai,
+Recoil, MobX, Valtio or XState (lint-enforced). If something seems to genuinely need one,
+**stop and ask the user first** — never install it on your own judgement. Server data
+stays in TanStack Query; persisted client state is Zustand `persist` + IndexedDB. See
+`.claude/rules/state-management.md`.
+
 **Keep it light.** This app carries heavy maps and graphs, so before adding any
 dependency check whether existing libraries (e.g. Radix for toasts, dialogs, tooltips,
 dropdowns) or native React/browser APIs do the job. Never add a library just for

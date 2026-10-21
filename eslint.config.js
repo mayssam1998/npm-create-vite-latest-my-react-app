@@ -6,8 +6,36 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
+// state-management.md: Zustand is the one client-state library. Listed in every
+// `no-restricted-imports` block below, because a later block replaces an earlier one.
+// Lifting this ban is the user's decision — ask, never loosen it here.
+const OTHER_STATE_LIBRARIES = {
+  group: [
+    'redux',
+    'redux-*',
+    '@reduxjs/*',
+    'react-redux',
+    'jotai',
+    'jotai/*',
+    'recoil',
+    'mobx',
+    'mobx-*',
+    'valtio',
+    'valtio/*',
+    'xstate',
+    '@xstate/*',
+  ],
+  message: 'Client state is Zustand only — ask before adding another library. See .claude/rules/state-management.md.',
+}
+
 export default defineConfig([
   globalIgnores(['dist']),
+  {
+    files: ['src/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': ['error', { patterns: [OTHER_STATE_LIBRARIES] }],
+    },
+  },
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -135,6 +163,7 @@ export default defineConfig([
         'error',
         {
           patterns: [
+            OTHER_STATE_LIBRARIES,
             {
               group: ['radix-ui', '@radix-ui/*'],
               message: 'Use the wrappers in @/shared/ui — features never import Radix directly.',
@@ -152,6 +181,7 @@ export default defineConfig([
         'error',
         {
           patterns: [
+            OTHER_STATE_LIBRARIES,
             {
               group: ['react', 'react-dom', 'react/*', '@tanstack/react-query'],
               message: 'No React in *.api.ts — query hooks belong in *.queries.ts.',
