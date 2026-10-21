@@ -11,7 +11,8 @@ approved Lovable app and copied verbatim into `src/shared/design-system/` — ne
 files. `css/tokens.css` defines every variable for four themes, `css/tailwind-theme.css`
 maps them to utilities (`bg-primary`, `text-muted-foreground`, `bg-status-open-soft`,
 `bg-tag-sage text-tag-sage-fg` …). **Never write a raw colour in a component.** Usage rules:
-the "Design rules (O.P.H.I.S)" section of `CLAUDE.md`.
+the "Design rules (O.P.H.I.S)" section of `CLAUDE.md`. Tweaking a colour or adding a theme:
+`src/shared/design-system/README.md`.
 
 This is also what makes dark mode a single stylesheet change instead of a hunt through
 400 files.

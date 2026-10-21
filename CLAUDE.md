@@ -143,9 +143,10 @@ in these files has gone stale.
 ## Design rules (O.P.H.I.S)
 
 Appended from `design-system-export/DESIGN-RULES.md` (Oct 20, 2026). Paths are adapted to
-this repo: the export lives in `src/shared/design-system/` (not `src/shared/design-system/`),
+this repo: the export lives in `src/shared/design-system/` (not `src/design-system/`),
 `<Ltr>` is `src/shared/ui/Ltr.tsx`, and `cn()` is `src/shared/lib/cn.ts`. Every value lives
-in `src/shared/design-system/`; this section says how to use it.
+in `src/shared/design-system/`; this section says how to use it. **To switch, tweak or add a
+theme, read `src/shared/design-system/README.md`.**
 
 ### Tokens
 

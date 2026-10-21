@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react';
 
 export type Theme = 'light' | 'dark';
 
+/** Menu order. A new family also needs its CSS and a label — see src/shared/design-system/README.md. */
 export const THEME_FAMILIES = ['default', 'analyst'] as const;
 export type ThemeFamily = (typeof THEME_FAMILIES)[number];
 

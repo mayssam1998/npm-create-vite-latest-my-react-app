@@ -1,4 +1,4 @@
-import type { Theme, ThemeFamily } from '@/shared/hooks/useTheme';
+import { THEME_FAMILIES, type Theme, type ThemeFamily } from '@/shared/hooks/useTheme';
 
 // Same keys as the source O.P.H.I.S app (design-system tokens.json → themeSwitch.storage).
 const THEME_STORAGE_KEY = 'cm:theme';
@@ -25,16 +25,19 @@ export function readStoredAppearance(): Appearance {
       : window.matchMedia('(prefers-color-scheme: dark)').matches
         ? 'dark'
         : 'light';
-  const family: ThemeFamily = storedFamily === 'analyst' ? 'analyst' : 'default';
+  const family: ThemeFamily = THEME_FAMILIES.find((name) => name === storedFamily) ?? 'default';
   return { theme, family };
 }
 
-/** Dark mode is `.dark` on <html>; the Analyst family is `data-theme="analyst"`. Independent of each other. */
+/**
+ * Dark mode is `.dark` on <html>; any family but the default is `data-theme="<family>"`.
+ * Independent of each other. How to add a family: src/shared/design-system/README.md.
+ */
 export function applyAppearance({ theme, family }: Appearance) {
   const root = document.documentElement;
   root.classList.toggle('dark', theme === 'dark');
-  if (family === 'analyst') root.dataset.theme = 'analyst';
-  else delete root.dataset.theme;
+  if (family === 'default') delete root.dataset.theme;
+  else root.dataset.theme = family;
 }
 
 export function storeAppearance({ theme, family }: Appearance) {

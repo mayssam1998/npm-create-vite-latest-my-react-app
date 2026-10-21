@@ -4,6 +4,12 @@ import { THEME_FAMILIES, useTheme, type ThemeFamily } from '@/shared/hooks/useTh
 import { Button } from '@/shared/ui/Button';
 import { Menu, type MenuSection } from '@/shared/ui/Menu';
 
+/** Every family needs a label, so adding one to THEME_FAMILIES fails the typecheck until it has one. */
+const FAMILY_LABEL_KEY: Record<ThemeFamily, string> = {
+  default: 'theme.familyDefault',
+  analyst: 'theme.familyAnalyst',
+};
+
 function isThemeFamily(value: string): value is ThemeFamily {
   return (THEME_FAMILIES as readonly string[]).includes(value);
 }
@@ -31,10 +37,7 @@ export function UserMenu() {
       id: 'family',
       label: t('theme.family'),
       value: family,
-      options: [
-        { value: 'default', label: t('theme.familyDefault') },
-        { value: 'analyst', label: t('theme.familyAnalyst') },
-      ],
+      options: THEME_FAMILIES.map((name) => ({ value: name, label: t(FAMILY_LABEL_KEY[name]) })),
       onValueChange: handleFamilyChange,
     },
     {
